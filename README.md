@@ -5,4 +5,7 @@ Projeto de criação de um chatbot para tirar dúvidas acadêmicas dos discentes
 # Libs:
 
 pip install python-dotenv
+
 pip install "python-telegram-bot[job-queue]"
+
+pip install --upgrade tornado

@@ -84,6 +84,47 @@
     - Site coordenação: [Site](https://pgintegridade.unb.br/coordenacao/)
 
 ## PROFESSORES
+### AEROESPACIAL
+- Artem Andrianov
+    - E-mail de contato: andrianov@unb.br
+    - Sala: Não informado
+
+- Gabriela Cunha Possa
+    - E-mail de contato: possa@unb.br
+    - Sala: Não informado
+
+- Manuel Nascimento Dias Barcelos Junior
+    - E-mail de contato: manuelbarcelos@unb.br
+    - Sala: 15
+
+- Olexiy Shynkarenko
+    - E-mail de contato: olexiy@unb.br
+    - Sala: 28
+
+- Paolo Gessini
+    - E-mail de contato: paologessini@unb.br
+    - Sala: Não informado
+
+- Polliana Candida Oliveira Martins
+    - E-mail de contato: polliana.martins@unb.br
+    - Sala: 29
+
+- Ronne Toledo
+    - E-mail de contato: rtoledo@unb.br
+    - Sala: Não informado
+
+- Sergio Henrique da Silva Carneiro
+    - E-mail de contato: shscarneiro@unb.br
+    - Sala: Não informado
+
+- Thiago Felippe Kurudez Cordeiro
+    - E-mail de contato: thiagocordeiro@unb.br
+    - Sala: 30
+
+- William Reis Silva
+    - E-mail de contato: reis.william@unb.br
+    - Sala: 28
+    
 ### SOFTWARE
 - Andre Luiz Peron Martins Lanna
     - E-mail de contato: andrelanna@unb.br

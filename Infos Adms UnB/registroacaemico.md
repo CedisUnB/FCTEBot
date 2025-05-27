@@ -26,3 +26,4 @@ Universidade de Brasília pode entrar em contato com os(as) calouros(as) por mei
 - O e-mail institucional do Office 365
 
 Fonte: [Boas Vindas UnB - Registro](https://www.boasvindas.unb.br/registro)
+Atualização: 27/05/2025

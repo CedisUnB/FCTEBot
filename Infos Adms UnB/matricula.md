@@ -13,3 +13,4 @@ Você ingressou pelos processos seletivos de Transferência Facultativa (TF), Po
 Então sua matrícula será feita pela coordenação do curso, pois é preciso checar os prováveis aproveitamentos de disciplinas cursadas em outras instituições a que você tem direito, assim não será necessário repetir estudos e você adianta seu tempo de formatura. Nesse caso você também receberá orientações por e-mail e dentro do próprio sistema SIGAA, mas é preciso ficar atento para os períodos reservados especificamente para esse tipo de matrícula no calendário disponível em https://saa.unb.br/graduacao/calendario-academico#calendario-de-matricula. Ao final do processo de matrícula junto à coordenação, você poderá checar sua grade de disciplinas pelo SIGAA. O sistema também informa o local das aulas.
 
 Fonte: [Boas Vindas UnB - Matrícula](https://www.boasvindas.unb.br/matricula)
+Atualização: 27/05/2025

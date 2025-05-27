@@ -42,3 +42,4 @@ Para saber onde está aquele livro que você tanto procura, nem precisa sair de 
 Site oficial: [https://bce.unb.br/](https://bce.unb.br/)
 
 Fonte: [Boas Vindas UnB - Serviços](https://www.boasvindas.unb.br/servicos2)
+Atualização: 27/05/2025

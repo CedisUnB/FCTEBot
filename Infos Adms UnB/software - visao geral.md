@@ -9,7 +9,6 @@ Opção de Curso no Vestibular: Engenharias
 O/A estudante escolherá ao final do 3° semestre qual das engenharias da Faculdade UnB Gama ele/a desejará cursar.
 Turno: Diurno
 Numero de semestre: 9 (mínimo) / 16 (máximo). Recomendado: 10
-Coordenador: John Lenon Cardoso Gardenghi
 Contatos: engsoftware@unb.br / (61) 3107-8918
 
 ## O QUE É O CURSO
@@ -35,3 +34,4 @@ Projeto de softwares críticos e tolerantes a falhas (sistemas bancários, softw
 Projeto e desenvolvimento de jogos eletrônicos e softwares educacionais.
 
 Fonte: [Engenharia de Software - FCTE](https://fcte.unb.br/engenharia-de-software/)
+Atualização: 27/05/2025

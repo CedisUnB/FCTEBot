@@ -200,3 +200,4 @@ Relatório de estágio [Anexo 5](https://john.pro.br/estagios/anexos/anexo5.pdf)
 O professor orientador do estágio dará a menção final ao aluno com base no Anexo 2 e Anexo 5.
 
 Fonte: [Estágios - FCTE Software](https://software.unb.br/ensino/estagio#estagio-nao-obrigatorio)
+Atualização: 27/05/2025

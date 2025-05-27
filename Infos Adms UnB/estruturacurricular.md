@@ -45,3 +45,4 @@ Como a UnB tem muitos cursos de graduação, com múltiplas estruturas, alguns c
 Chamamos de atividades complementares todas aquelas que não correspondem a componentes curriculares, mas que podem ser aproveitadas como parte da formação do(a) estudante. São exemplos de atividades complementares a participação em eventos científicos, artísticos ou culturais, em projetos de pesquisa e extensão (falaremos mais à frente sobre isso), a realização de cursos e minicursos externos à UnB entre outros. As regras para aproveitamento curricular dessas atividades variam conforme o curso e são parte integrante do PPC. Procure conhecer o quanto antes como funciona no seu curso para aproveitar da melhor maneira essa possibilidade. 
 
 Fonte: [Manual do Estudante (2022)](https://www.boasvindas.unb.br/manual-para-estudantes)
+Atualização: 27/05/2025

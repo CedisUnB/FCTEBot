@@ -15,3 +15,4 @@ O Aprender é um ambiente virtual de aprendizagem, um sistema ou aplicação que
 Na UnB o ambiente virtual utilizado é o Aprender 3, direcionado aos alunos de graduação e pós-graduação dos campi: Asa Norte, Ceilândia, Gama e Planaltina. De maneira resumida, este ambiente é voltado para aqueles que estudam presencialmente na Universidade. O acesso ao ambiente ocorre pelo endereço aprender3.unb.br e os dados necessários para o login são seu CPF ou e-mail institucional e sua senha, que é a mesma utilizada para acessar seu e-mail institucional.
 
 Fonte: [Boas Vindas UnB - Plataformas](https://www.boasvindas.unb.br/plataformas)
+Atualização: 27/05/2025

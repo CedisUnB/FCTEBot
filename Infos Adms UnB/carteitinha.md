@@ -9,3 +9,4 @@ Observação: O documento permite a alunos regulares o acesso ao Restaurante Uni
 Não serão disponibilizadas identidades estudantis em meio físico, porém, as que foram emitidas pela Promofoto e ainda não retiradas pelos estudantes, estão sendo entregues nas Secretarias dos Departamentos, ou no Setor de Atendimento da SAA, localizado no Centro de Vivência (em frente à entrada do ICC Sul).
 
 Fonte: [Boas Vindas UnB - Carteirinha](https://www.boasvindas.unb.br/identidade-estudantil)
+Atualização: 27/05/2025

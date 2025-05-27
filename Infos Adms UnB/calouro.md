@@ -58,3 +58,4 @@ Agora que você já tem todas as informações para começar o semestre, fique a
 Semestralmente, a UnB organiza uma recepção de boas-vindas aos novos(as) estudantes. Ela é preparada com muito carinho para que você possa se sentir em casa e entender como funcionam as dinâmicas da Universidade. Além disso, dentro da recepção de boas-vindas, você terá a oportunidade única de assistir ao #InspiraUnB, evento que traz convidados de renome para bater um papo com a comunidade acadêmica sobre um tema relevante do momento. 
 
 Fonte: [Boas Vindas UnB - Calouros](https://www.boasvindas.unb.br/checklist)
+Atualização: 27/05/2025

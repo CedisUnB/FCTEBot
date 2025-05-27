@@ -101,3 +101,4 @@ O Trabalho de Conclusão de Curso (TCC) é composto por dois componentes curricu
 - As áreas podem instituir **prêmios para os melhores TCCs**, com critérios definidos por cada colegiado.
 
 Fonte: [Resolução do Conselho da fga Nº 0002/2022](https://sei.unb.br/sei/publicacoes/controlador_publicacoes.php?acao=publicacao_visualizar&id_documento=8652554&id_orgao_publicacao=0)
+Atualização: 27/05/2025

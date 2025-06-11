@@ -263,10 +263,58 @@
   - E-mail de contato: gbeserra@unb.br
   - Sala: 24
     
-- Gilmar Silva Beserra
-  - E-mail de contato: gbeserra@unb.br
-  - Sala: 24
+- Guillermo Alvarez Bestard
+  - E-mail de contato: guillermo@unb.br
+  - Sala: 34
+      
+- Henrique Marra Taira Menegaz
+  - E-mail de contato: henriquemenegaz@unb.br
+  - Sala: Não informado
+        
+- Luciano Emidio Neves da Fonseca
+  - E-mail de contato: lucianofonseca@unb.br
+  - Sala: 01
+          
+- Luis Filomeno de Jesus Fernandes
+  - E-mail de contato: filomeno@unb.br
+  - Sala: Não informado
+           
+- Marcelino Monteiro de Andrade
+  - E-mail de contato: andrade@unb.br
+  - Sala: Não informado
+
+- Marcus Vinicius Batistuta
+  - E-mail de contato: batistuta@unb.br
+  - Sala: Não informado
+
+- Marcus Vinicius Chaffim Costa
+  - E-mail de contato: chaffim@unb.br
+  - Sala: 11
+
+- Mariana Costa Bernardes Matias
+  - E-mail de contato: bernardes@unb.br
+  - Sala: 31
+ 
+- Renan Utida Barbosa Ferreira
+  - E-mail de contato: renan@unb.br
+  - Sala: 26
   
+- Renato Vilela Lopes
+  - E-mail de contato: rvlopes@unb.br
+  - Sala: 12
+  
+- Sandro Augusto Pavlik Haddad
+  - E-mail de contato: sandrohaddad@unb.br
+  - Sala: Não informado
+   
+- Suelia de Siqueira Rodrigues Fleury Rosa
+  - E-mail de contato: suelia@unb.br
+  - Sala: Não informado
+     
+- Wellington Avelino do Amaral
+  - E-mail de contato: waamaral@unb.br
+  - Sala: Não informado
+
 ## PROFESSORES ENERGIA
 
 - Alex Reis

@@ -105,6 +105,60 @@
   - E-mail coordenação: ppgintr@unb.br
   - Site coordenação: [Site](https://pgintegridade.unb.br/coordenacao/)
 
+## PROFESSORES CICLO BÁSICO
+
+- Andre Luiz Almeida Penna
+  - E-mail de contato: andrepenna@unb.br
+  - Sala: Não informado
+
+- Eberth de Almeida Correa
+  - E-mail de contato: eberth@unb.br
+  - Sala: 23
+
+- Lindomar Bomfim de Carvalho de Jesus
+  - E-mail de contato: lbcarval@unb.br
+  - Sala: Não informado
+
+- Luiza Yoko Taneguti
+  - E-mail de contato: taneguti@unb.br
+  - Sala: 32
+  
+- Rafael Morgado Silva
+  - E-mail de contato: morgado@unb.br
+  - Sala: Não informado
+
+- Ricardo Ramos Fragelli
+  - E-mail de contato: fragelli@unb.br
+  - Sala: Não informado
+  
+- Rodrigo Andres Miranda Cerda
+  - E-mail de contato: rmiracer@unb.br
+  - Sala: Não informado
+  
+- Ronni Geraldo Gomes de Amorim
+  - E-mail de contato: ronniamorim@unb.br
+  - Sala: Não informado
+  
+- Tais Calliero Tognetti
+  - E-mail de contato: taisca@unb.br
+  - Sala: Não informado
+  
+- Tatiane da Silva Evangelista
+  - E-mail de contato: tatilista@unb.br
+  - Sala: 06
+  
+- Vinicius de Carvalho Rispoli
+  - E-mail de contato: vrispoli@unb.br@unb.br
+  - Sala: Não informado
+  
+- Wytler Cordeiro dos Santos
+  - E-mail de contato: wytler.cordeiro@unb.br
+  - Sala: Não informado
+  
+- Yevsey Yehoshua Sobolevsky
+  - E-mail de contato: yehoshua@unb.br
+  - Sala: Não informado
+
 ## PROFESSORES AEROESPACIAL
 
 - Artem Andrianov

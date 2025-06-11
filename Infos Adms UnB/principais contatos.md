@@ -7,8 +7,8 @@ Loca: prédio UAC
 
 Contatos:
 Email: secretaria.fcte@unb.br
-SEI: FCTE/SGRA
 Número: (61) 3107-8901 
+
 
 Servidores:
 Francisco César (Chiquinho) – 08h às 17h (flexível)

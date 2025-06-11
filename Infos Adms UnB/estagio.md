@@ -1,9 +1,15 @@
 # ESTAGIOS - SOFTWARE
+
 ## MODALIDADES
+
 Há apenas duas modalidades de estágio: obrigatório e não-obrigatório.
+
 ## ESTÁGIO OBRIGATÓRIO
+
 Estágio obrigatório é o estágio que o aluno faz para cumprir os requisitos para a disciplina de Estágio Supervisionado. Nesta modalidade, pagamento de bolsa é opcional. A vigência do estágio obrigatório não pode exceder o último dia do semestre letivo.
+
 ## ESTÁGIO NÃO OBRIGATÓRIO
+
 Estágio não obrigatório é uma atividade opcional que pode ser desenvolvida por qualquer aluno de graduação a qualquer momento do curso.
 Quem pode fazer estágio não-obrigatório?
 Qualquer aluno regularmente matriculado.
@@ -129,13 +135,17 @@ Aproveitar como atividades complementares. Você pode solicitar caso tenha feito
 Aproveitar para o Estágio Supervisionado caso tenha feito o estágio (ou parte dele) depois de integralizar pelo menos 70% da carga horária do curso. Para tanto, basta efetuar a matrícula na disciplina de Estágio Supervisionado e cumprir ao menos 210h de estágio depois de concluir de 70% do curso.
 
 ## MUDANÇA DE ESTÁGIO
+
 Não é possível mudar um estágio não obrigatório para obrigatório ou vice-versa. São dois objetos diferentes. No curso de Eng. de Software, ambos podem ser aproveitados para a disciplina de Estágio Supervisionado.
 
 ## ESTÁGIO SUPERVISIONADO
+
 A disciplina de Estágio Supervisionado é uma disciplina do curso de Engenharia de Software que possui 14 créditos (210h).
 Você deve cursar a disciplina caso esteja fazendo estágio obrigatório.
-Você deve pedir dispensa da disciplina caso tenha feito estágio não obrigatório, trabalhado, participado de projeto de pesquisa ou realizado iniciação científica. 
+Você deve pedir dispensa da disciplina caso tenha feito estágio não obrigatório, trabalhado, participado de projeto de pesquisa ou realizado iniciação científica.
+
 ### DISPENSA
+
 Quais atividades são aceitas para a solicitação de dispensa?
 Estágio não obrigatório em qualquer instituição
 
@@ -164,6 +174,7 @@ Trabalho com carteira assinada, MEI com contrato de trabalho, contrato de servi�
 Projeto de pesquisa: apresentar Termo de Compromisso (se houver) e declaração assinada pelo coordenador do projeto e atualizada contendo a carga horária e as atividades realizadas.
 
 ### CURSAR
+
 Quem pode cursar a disciplina de Estágio Supervisionado?
 Qualquer aluno que tenha concluído 70% ou mais do curso.
 
@@ -187,11 +198,9 @@ O aluno deve:
 
 - ter concluído 70% da carga horária total do curso.
 - estar realizando estágio obrigatório.
-- não exceder o limite de 32 créditos no total em disciplinas matriculadas (a não ser que seja um provável formando)
-    - a disciplina de estágio supervisionado possui 14 créditos, portanto o limite máximo de créditos em outras disciplinas é 18 (veja item a seguir).
-    - essa regra não se aplica a prováveis formandos, ou seja, àqueles que terminarão o curso até o final do semestre.
-Como é feita a avaliação na disciplina de estágio supervisionado?
-Formulário de avaliação de desempenho do estagiário pela concedente [Anexo 2](https://john.pro.br/estagios/anexos/anexo2.docx), feito e assinado pelo supervisor de estágio na empresa
+- não exceder o limite de 32 créditos no total em disciplinas matriculadas (a não ser que seja um provável formando) - a disciplina de estágio supervisionado possui 14 créditos, portanto o limite máximo de créditos em outras disciplinas é 18 (veja item a seguir). - essa regra não se aplica a prováveis formandos, ou seja, àqueles que terminarão o curso até o final do semestre.
+  Como é feita a avaliação na disciplina de estágio supervisionado?
+  Formulário de avaliação de desempenho do estagiário pela concedente [Anexo 2](https://john.pro.br/estagios/anexos/anexo2.docx), feito e assinado pelo supervisor de estágio na empresa
 
 Formulário de avaliação da concedente pelo estagiário [Anexo 4](https://john.pro.br/estagios/anexos/anexo4.docx), feito e assinado pelo aluno
 

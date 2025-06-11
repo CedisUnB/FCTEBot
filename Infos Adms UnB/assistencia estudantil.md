@@ -1,4 +1,7 @@
 # ASSISTÊNCIA ESTUDANTIL
+
+## COMUM
+
 A Política de Assistência Estudantil da Universidade de Brasília tem por finalidade assegurar condições de permanência e diplomação na educação superior aos estudantes em situação de vulnerabilidade socioeconômica e/ou risco social regularmente matriculados em cursos de graduação e de pós-graduação stricto sensu.
 
 A Política de Assistência Estudantil executada pela DDS compreende os seguintes programas:
@@ -23,14 +26,15 @@ I – Vale Livro: desenvolvido em parceria com a Editora UnB que disponibiliza a
 
 II – Acesso à Língua Estrangeira: desenvolvido em parceria com o programa de extensão UnB Idiomas, que disponibiliza semestralmente uma vaga por turma nos cursos de línguas oferecidos com isenção de mensalidade. As inscrições são realizadas no programa de extensão UnB Idiomas, de acordo com critérios e calendário próprios disponíveis na página da UnB Idiomas: www.unbidiomas.unb.br.
 
-A DDS/DAC tem sede no Campus Darcy Ribeiro e representações nos campi Faculdade UnB Gama (FGA) e Faculdade UnB Ceilândia (FCE) e parceria com o setor de Assistência Estudantil da Faculdade UnB Planaltina ( AEST/FUP). 
+A DDS/DAC tem sede no Campus Darcy Ribeiro e representações nos campi Faculdade UnB Gama (FGA) e Faculdade UnB Ceilândia (FCE) e parceria com o setor de Assistência Estudantil da Faculdade UnB Planaltina ( AEST/FUP).
 
 ## NA FCTE
+
 Assistente Social – Patrícia de Jesus
 Sala A163/19 – Prédio UA
 Horários: de Segunda-feira a sexta-feira pela manhã
 e-mail: patricial@unb.br
-Assistente Social –  Etiene de Sousa
+Assistente Social – Etiene de Sousa
 Sala A1 – 66/19 – Prédio UAC
 Horários: de Segunda-feira a sexta-feira pela tarde.
 e-mail:etienelima@unb.br

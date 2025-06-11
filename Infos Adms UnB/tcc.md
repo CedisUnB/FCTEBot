@@ -76,7 +76,7 @@ O Trabalho de Conclusão de Curso (TCC) é composto por dois componentes curricu
 ## Menções
 
 | Menção | Faixa Numérica |
-|--------|----------------|
+| ------ | -------------- |
 | SS     | 9,0 a 10       |
 | MS     | 7,0 a 8,9      |
 | MM     | 5,0 a 6,9      |
@@ -84,8 +84,10 @@ O Trabalho de Conclusão de Curso (TCC) é composto por dois componentes curricu
 | II     | 0,1 a 2,9      |
 | SR     | 0              |
 
-### Aprovado: menção igual ou superior a MM  
+### Aprovado: menção igual ou superior a MM
+
 ### Reprovado:
+
 - Frequência < 75% → SR
 - Menção MI ou inferior
 

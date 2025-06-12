@@ -24,11 +24,20 @@ async def end_conversation(context: ContextTypes.DEFAULT_TYPE) -> None:
         text="⏱️ A conversa foi encerrada por inatividade. Envie /start para começar novamente."
     )
 
+    # Limpa os dados do chat e do usuário (opcional)
+    context.chat_data.clear()
+    context.user_data.clear()
+
 # Reinicia o temporizador sempre que o usuário interage
-async def reset_timer(chat_id, context):
+async def reset_timer(chat_id, context: ContextTypes.DEFAULT_TYPE):
     old_job = context.chat_data.get("end_conversation_job")
+
     if old_job:
-        old_job.schedule_removal()
+        try:
+            old_job.schedule_removal()
+        except Exception as e:
+            # Log opcional: print(f"Erro ao remover job antigo: {e}")
+            pass
 
     new_job = context.job_queue.run_once(end_conversation, 30, chat_id=chat_id)
     context.chat_data["end_conversation_job"] = new_job
@@ -47,6 +56,7 @@ async def button(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
 
     if query.data == 'contexto':
         context.chat_data['curso'] = 'Engenharias'
+        context.chat_data['contexto'] = True  # ADICIONADO
         await query.edit_message_text(
             "👋 Olá! Seja bem-vindo(a) ao assistente virtual da UnB – FGA!\n\n"
             "Estou aqui para te ajudar com dúvidas administrativas sobre o campus, como informações sobre matrícula, calendário acadêmico, fluxogramas, estágios, entre outros temas do dia a dia universitário.\n"

@@ -39,7 +39,7 @@ system_message = (
 chat_history = []
 
 def get_relevant_chunk(query, vectorstore):
-    results = vectorstore.similarity_search(query, k=5)  # Pode ajustar k se quiser
+    results = vectorstore.similarity_search(query, k=10)  # Pode ajustar k se quiser
     if results:
         partes = []
         fontes_vistas = set()
@@ -63,10 +63,11 @@ def get_relevant_chunk(query, vectorstore):
 def make_prompt(query, context):
     return (
         f"{system_message}\n\n"
+        f"IMPORTANTE: Use a tag HTML <b> para negrito ao invés de **texto**, use <a> para links e as listas faça com '-', evite markdown na resposta.\n\n"
         f"Com base nas informações abaixo, responda à pergunta de forma precisa e clara. "
         f"Sempre que possível, cite a fonte e a data de atualização da informação ao final da resposta e caso a fonte já tenha sido mencionada, não repetir:\n\n"
         f"{context}\n\n"
-        f"Pergunta: {query}\n\nResposta:"
+        f"Pergunta: {query}\n\n"
     )
 
 def gen_answer(prompt):

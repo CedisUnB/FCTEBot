@@ -44,7 +44,7 @@ def extract_sections(content, fonte, data_atualizacao):
             if current_subtitle and current_text:
                 entries.append({
                     "nome": f"{title_main} {current_subtitle}",
-                    "texto": "\n".join(current_text).strip(),
+                    "texto": "## " + current_subtitle + "\n".join(current_text).strip(),
                     "fonte": fonte,
                     "data_atualizacao": data_atualizacao
                 })
@@ -59,7 +59,7 @@ def extract_sections(content, fonte, data_atualizacao):
     if current_subtitle and current_text:
         entries.append({
             "nome": f"{title_main} {current_subtitle}",
-            "texto": "\n".join(current_text).strip(),
+            "texto": "## " + current_subtitle + "\n" + "\n".join(current_text).strip(),
             "fonte": fonte,
             "data_atualizacao": data_atualizacao
         })

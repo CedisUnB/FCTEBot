@@ -20,4 +20,5 @@ O curso de Engenharia de Energia é oferecido pela Faculdade UnB Gama (FGA) desd
 
 Durante o curso, o estudante participará de atividades de projetos em disciplinas específicas que o colocarão, desde o segundo ano, em contato com atividades práticas que permitirão e auxiliarão no desenvolvimento de sua capacidade de trabalho coordenado e em equipe.
 
-Fonte: [Engenharia de Energia - FCTE](https://fcte.unb.br/engenharia-de-energia/) 
+Fonte: [Engenharia de Energia - FCTE](https://fcte.unb.br/engenharia-de-energia/)
+Atualização: 11/06/2025

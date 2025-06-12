@@ -2,7 +2,7 @@
 
 ## INFORMAÇÕES GERAIS
 
-Duração: 3 Semestres Iniciais 
+Duração: 3 Semestres Iniciais
 Unidade Acadêmica: Faculdade de Ciências e Tecnologias em Engenharia (FCTE) – Universidade de Brasília (UnB)
 Turno: Diurno
 
@@ -20,4 +20,5 @@ O currículo do curso é cuidadosamente projetado para abordar os principais con
 
 Com uma sólida formação proporcionada pelo curso de Ciências Naturais Aplicadas, os alunos estão preparados para prosseguir em suas especializações nos cursos de engenharia oferecidos pela FCTE, desenvolvendo soluções inovadoras e contribuindo para o avanço da ciência e da tecnologia.
 
-Fonte: [Ciclo Básico - FCTE](https://fcte.unb.br/ciencias-naturais-aplicadas/) 
+Fonte: [Ciclo Básico - FCTE](https://fcte.unb.br/ciencias-naturais-aplicadas/)
+Atualização: 11/06/2025

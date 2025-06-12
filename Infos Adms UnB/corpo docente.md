@@ -1,226 +1,526 @@
 # CORPO DOCENTE
-## GERAL
-### DIRETORIA
+
+## DIRETORIA
+
 - Leandro Xavier Cardoso (Diretor)
-    - E-mail de contato: leandrocardoso@unb.br
-    - Sala: Não informado
 
-- André Barros de Sales 
-    - E-mail de contato: andrebdes@unb.br
-    - Sala: 20
+  - E-mail de contato: leandrocardoso@unb.br
+  - Sala: Não informado
 
-### COORDENAÇÃO
+- André Barros de Sales
+  - E-mail de contato: andrebdes@unb.br
+  - Sala: 20
+
+## COORDENAÇÃO
+
 - Wander Cleber Maria Pereira da Silva (Coordenador Acadêmico)
-    - E-mail de contato: wandercleber@unb.br
-    - Sala: 21
-    - E-mail coordenação: coordenacao.fcte@unb.br
+
+  - E-mail de contato: wandercleber@unb.br
+  - Sala: 21
+  - E-mail coordenação: coordenacao.fcte@unb.br
+  - Atendimento: Quarta-feira das 10h às 11h50
 
 - Matheus Bernardini de Souza (Coordenador de Ciências Naturais Aplicadas - Ciclo Básico)
-    - E-mail de contato: matheusbernardini@unb.br
-    - Sala: 34
-    - E-mail coordenação: cna@unb.br
+
+  - E-mail de contato: matheusbernardini@unb.br
+  - Sala: 34
+  - E-mail coordenação: cna@unb.br
+  - Atendimento: Quinta-feira das 10h às 11h50
 
 - Artur Elias de Morais Bertoldi (Coordenador do Curso de Aeroespacial)
-    - E-mail de contato: bertoldi@unb.br
-    - Sala: 11
-    - E-mail coordenação: aeroespacial@unb.br
+
+  - E-mail de contato: bertoldi@unb.br
+  - Sala: 11
+  - E-mail coordenação: aeroespacial@unb.br
+  - Atendimento: Terça-feira das 14h às 16h
 
 - Himilsys Hernández Gonzáles (Coordenador do Curso de Automotiva)
-    - E-mail de contato: himilsys@unb.br
-    - Sala: Sala da Coordenação – Prédio UAC
-    - E-mail coordenação: automotiva@unb.br
+
+  - E-mail de contato: himilsys@unb.br
+  - Sala: Sala da Coordenação – Prédio UAC
+  - E-mail coordenação: automotiva@unb.br
+  - Atendimento: Quarta-feira das 09h às 11h
 
 - Andreia Alves Costa Lindinger (Coordenador do Curso de Energia)
-    - E-mail de contato: andreiaacosta@unb.br
-    - Sala: Sala da Coordenação – Prédio UAC
-    - E-mail coordenação: energia@unb.br
+
+  - E-mail de contato: andreiaacosta@unb.br
+  - Sala: Sala da Coordenação – Prédio UAC
+  - E-mail coordenação: energia@unb.br
+  - Atendimento: Segunda feira das 10h às 12h
+
+- John Lenon Cardoso Gardenghi (Coordenador do Curso de Software)
+    - E-mail de contato: john.gardenghi@unb.br
+    - Sala: 22
+    - E-mail coordenação: software@unb.br
+    - Site coordenação: [Site](https://software.unb.br/institucional/coordenacao)
+    - Atendimento: Sexta feira das 9h às 11h30 
 
 - Daniel Costa Araújo (Coordenador do Curso de Eletrônica)
     - E-mail de contato: daniel.c.araujo@gmail.com
     - Sala: Sala da Coordenação – Prédio UAC
-    - E-mail coordenação: software@unb.br
-    - Site coordenação: [Site](https://software.unb.br/institucional/coordenacao)
+    - E-mail coordenação: eletronica@unb.br
+    - Site coordenação: [Site](https://eletronica.unb.br/coordenacao-de-curso/)
+    - Atendimento: Terça feira das 10h às 11h50
 
 - Fábio Alfaia da Cunha (Coordenador de Estágio de Aeroespacial)
-    - E-mail de contato: fabioalfaia@unb.br
-    - Sala: 09
+  - E-mail de contato: fabioalfaia@unb.br
+  - Sala: 09
 
 - Rhander Viana (Coordenador de Estágio de Automotiva)
-    - E-mail de contato: rhander@unb.br
-    - Sala: 13
+  - E-mail de contato: rhander@unb.br
+  - Sala: 13
 
 - Felipe Chagas Storti (Coordenador de Estágio de Energia)
-    - E-mail de contato: storti@unb.br
-    - Sala: 13
+  - E-mail de contato: storti@unb.br
+  - Sala: 13
 
 - Edson Alves da Costa Junior (Coordenador de Estágio de Software)
-    - E-mail de contato: edsonalves@unb.br
-    - Sala: 20
+  - E-mail de contato: edsonalves@unb.br
+  - Sala: 20
 
 - Marcus Vinícius Chaffim Costa (Coordenador de Estágio de Eletrônica)
-    - E-mail de contato: chaffim@unb.br
-    - Sala: 11
+  - E-mail de contato: chaffim@unb.br
+  - Sala: 11
 
 - Patrícia Regina Sobral Braga (Coordenadora de Extensão)
-    - E-mail de contato: patriciabraga@unb.br
-    - Sala: 23
-    - E-mail coordenação: extensão.fcte@unb.br
-    - Site coordenação: [Site](https://fcte.unb.br/coordenacao-extensao/)
+  - E-mail de contato: patriciabraga@unb.br
+  - Sala: 23
+  - E-mail coordenação: extensão.fcte@unb.br
+  - Site coordenação: [Site](https://fcte.unb.br/coordenacao-extensao/)
+  - Atendimento: Segunda feira das 10h30 às 12h
 
 - Sebastien Roland Marie Joseph Rondineau (Coordenador de Pesquisa e Inovação)
-    - E-mail de contato: sebastien@unb.br
-    - Sala: 31
+  - E-mail de contato: sebastien@unb.br
+  - Sala: 31
 
 - Marília Miranda Forte Gomes (Coordenadora de Pós-Graduação Biomédica)
-    - E-mail de contato: mariliamfg@unb.br
-    - Sala: Não informado
-    - E-mail coordenação: ppgeb@unb.br
-    - Site coordenação: [Site](https://ppgeb.unb.br/coordenacao-do-programa/)
+  - E-mail de contato: mariliamfg@unb.br
+  - Sala: Não informado
+  - E-mail coordenação: ppgeb@unb.br
+  - Site coordenação: [Site](https://ppgeb.unb.br/coordenacao-do-programa/)
 
--  Maria Del Pilar Hidalgo Falla (Coordenadora de Pós-Graduação Integridade)
-    - E-mail de contato: pilar@unb.br   
-    - Sala: Não informado
-    - E-mail coordenação: ppgintr@unb.br 
-    - Site coordenação: [Site](https://pgintegridade.unb.br/coordenacao/)
+- Maria Del Pilar Hidalgo Falla (Coordenadora de Pós-Graduação Integridade)
+  - E-mail de contato: pilar@unb.br
+  - Sala: Não informado
+  - E-mail coordenação: ppgintr@unb.br
+  - Site coordenação: [Site](https://pgintegridade.unb.br/coordenacao/)
 
-## PROFESSORES
-### AEROESPACIAL
+## PROFESSORES CICLO BÁSICO
+
+- Andre Luiz Almeida Penna
+  - E-mail de contato: andrepenna@unb.br
+  - Sala: Não informado
+
+- Eberth de Almeida Correa
+  - E-mail de contato: eberth@unb.br
+  - Sala: 23
+
+- Lindomar Bomfim de Carvalho de Jesus
+  - E-mail de contato: lbcarval@unb.br
+  - Sala: Não informado
+
+- Luiza Yoko Taneguti
+  - E-mail de contato: taneguti@unb.br
+  - Sala: 32
+  
+- Rafael Morgado Silva
+  - E-mail de contato: morgado@unb.br
+  - Sala: Não informado
+
+- Ricardo Ramos Fragelli
+  - E-mail de contato: fragelli@unb.br
+  - Sala: Não informado
+  
+- Rodrigo Andres Miranda Cerda
+  - E-mail de contato: rmiracer@unb.br
+  - Sala: Não informado
+  
+- Ronni Geraldo Gomes de Amorim
+  - E-mail de contato: ronniamorim@unb.br
+  - Sala: Não informado
+  
+- Tais Calliero Tognetti
+  - E-mail de contato: taisca@unb.br
+  - Sala: Não informado
+  
+- Tatiane da Silva Evangelista
+  - E-mail de contato: tatilista@unb.br
+  - Sala: 06
+  
+- Vinicius de Carvalho Rispoli
+  - E-mail de contato: vrispoli@unb.br@unb.br
+  - Sala: Não informado
+  
+- Wytler Cordeiro dos Santos
+  - E-mail de contato: wytler.cordeiro@unb.br
+  - Sala: Não informado
+  
+- Yevsey Yehoshua Sobolevsky
+  - E-mail de contato: yehoshua@unb.br
+  - Sala: Não informado
+
+## PROFESSORES AEROESPACIAL
+
 - Artem Andrianov
-    - E-mail de contato: andrianov@unb.br
-    - Sala: Não informado
+  - E-mail de contato: andrianov@unb.br
+  - Sala: Não informado
 
 - Gabriela Cunha Possa
-    - E-mail de contato: possa@unb.br
-    - Sala: Não informado
+  - E-mail de contato: possa@unb.br
+  - Sala: Não informado
 
 - Manuel Nascimento Dias Barcelos Junior
-    - E-mail de contato: manuelbarcelos@unb.br
-    - Sala: 15
+  - E-mail de contato: manuelbarcelos@unb.br
+  - Sala: 15
 
 - Olexiy Shynkarenko
-    - E-mail de contato: olexiy@unb.br
-    - Sala: 28
+  - E-mail de contato: olexiy@unb.br
+  - Sala: 28
 
 - Paolo Gessini
-    - E-mail de contato: paologessini@unb.br
-    - Sala: Não informado
+  - E-mail de contato: paologessini@unb.br
+  - Sala: Não informado
 
 - Polliana Candida Oliveira Martins
-    - E-mail de contato: polliana.martins@unb.br
-    - Sala: 29
+  - E-mail de contato: polliana.martins@unb.br
+  - Sala: 29
 
 - Ronne Toledo
-    - E-mail de contato: rtoledo@unb.br
-    - Sala: Não informado
+  - E-mail de contato: rtoledo@unb.br
+  - Sala: Não informado
 
 - Sergio Henrique da Silva Carneiro
-    - E-mail de contato: shscarneiro@unb.br
-    - Sala: Não informado
+  - E-mail de contato: shscarneiro@unb.br
+  - Sala: Não informado
 
 - Thiago Felippe Kurudez Cordeiro
-    - E-mail de contato: thiagocordeiro@unb.br
-    - Sala: 30
+  - E-mail de contato: thiagocordeiro@unb.br
+  - Sala: 30
 
 - William Reis Silva
-    - E-mail de contato: reis.william@unb.br
-    - Sala: 28
+  - E-mail de contato: reis.william@unb.br
+  - Sala: 28
+
+## PROFESSORES AUTOMOTIVA
+
+- Alessandro Borges de Sousa Oliveira
+  - E-mail de contato: abso@unb.br
+  - Sala: Não informado
+
+- Carla Tatiana Mota Anflor
+  - E-mail de contato: anflor@unb.br
+  - Sala: Não informado
+
+- Edison Gustavo Cueva Galarraga
+  - E-mail de contato: cueva@unb.br
+  - Sala: Não informado
+
+- Emmanuel Pacheco Rocha Lima
+  - E-mail de contato: emmanuel@unb.br
+  - Sala: Não informado
+
+- Eneida Gonzalez Valdes
+  - E-mail de contato: eneidagv@unb.br
+  - Sala: Não informado
+
+- Evandro Leonardo Silva Teixeira
+  - E-mail de contato: evandroleonardo@unb.br
+  - Sala: 33
+
+- Fabio Alfaia da Cunha
+  - E-mail de contato: fabioalfaia@unb.br
+  - Sala: 09
+
+- Fabio Cordeiro de Lisboa
+  - E-mail de contato: fabiolisboa@unb.br
+  - Sala: UED 01
+  
+- Glauceny Cirne de Medeiros
+  - E-mail de contato: glauceny.medeiros@unb.br
+  - Sala: Não informado
+  
+- Henrique Gomes de Moura
+  - E-mail de contato: hgmoura@yahoo.com
+  - Sala: 13
+  
+- Maria Alzira de Araujo Nunes
+  - E-mail de contato: zizanunes@gmail.com
+  - Sala: 12
+  
+- Mario de Oliveira Andrade
+  - E-mail de contato: marioand@unb.br
+  - Sala: 28
+  
+- Mateus Rodrigues Miranda
+  - E-mail de contato: mateusmiranda@unb.br
+  - Sala: 10
+  
+- Maura Angelica Milfont Shzu
+  - E-mail de contato: maura@unb.br
+  - Sala: Não informado
+  
+- Rita de Cassia Silva
+  - E-mail de contato: ritasilva@unb.br
+  - Sala: Não informado
+  
+- Rodrigo Arbey Munoz Meneses
+  - E-mail de contato: ramunoz@unb.br
+  - Sala: Não informado
+  
+- Saleh Barbosa Khalil
+  - E-mail de contato: sbkhalil@unb.br
+  - Sala: Não informado
+  
+- Sandra Maria da Luz
+  - E-mail de contato: sandraluz@unb.br
+  - Sala: 07
+  
+- Suzana Moreira Avila
+  - E-mail de contato: avilas@unb.br
+  - Sala: Não informado
+
+## PROFESSORES ELETRÔNICA
+
+- Claudia Patricia Ochoa Diaz
+  - E-mail de contato: claudiaochoa@unb.br
+  - Sala: Não informado
+
+- Cristiano Jacques Miosso Rodrigues Mendes
+  - E-mail de contato: cristiano.jacques@gmail.com
+  - Sala: Não informado
+
+- Daniel Mauricio Munoz Arboleda
+  - E-mail de contato: damuz@unb.br
+  - Sala: 24
+
+- Diogo de Oliveira Costa
+  - E-mail de contato: costadiogo@unb.br
+  - Sala: Não informado
+
+- Diogo Caetano Garcia
+  - E-mail de contato: diogogarcia@unb.br
+  - Sala: Não informado
+
+- Euler de Vilhena Garcia
+  - E-mail de contato: evgarcia@unb.br
+  - Sala: Não informado
+  
+- Fabiano Araujo Soares
+  - E-mail de contato: fabianosoares@unb.br
+  - Sala: 03
+
+- Gerardo Antonio Idrobo Pizo
+  - E-mail de contato: gerardo_idrobo@unb.br
+  - Sala: Não informado
+  
+- Gilmar Silva Beserra
+  - E-mail de contato: gbeserra@unb.br
+  - Sala: 24
     
-### SOFTWARE
+- Guillermo Alvarez Bestard
+  - E-mail de contato: guillermo@unb.br
+  - Sala: 34
+      
+- Henrique Marra Taira Menegaz
+  - E-mail de contato: henriquemenegaz@unb.br
+  - Sala: Não informado
+        
+- Luciano Emidio Neves da Fonseca
+  - E-mail de contato: lucianofonseca@unb.br
+  - Sala: 01
+          
+- Luis Filomeno de Jesus Fernandes
+  - E-mail de contato: filomeno@unb.br
+  - Sala: Não informado
+           
+- Marcelino Monteiro de Andrade
+  - E-mail de contato: andrade@unb.br
+  - Sala: Não informado
+
+- Marcus Vinicius Batistuta
+  - E-mail de contato: batistuta@unb.br
+  - Sala: Não informado
+
+- Marcus Vinicius Chaffim Costa
+  - E-mail de contato: chaffim@unb.br
+  - Sala: 11
+
+- Mariana Costa Bernardes Matias
+  - E-mail de contato: bernardes@unb.br
+  - Sala: 31
+ 
+- Renan Utida Barbosa Ferreira
+  - E-mail de contato: renan@unb.br
+  - Sala: 26
+  
+- Renato Vilela Lopes
+  - E-mail de contato: rvlopes@unb.br
+  - Sala: 12
+  
+- Sandro Augusto Pavlik Haddad
+  - E-mail de contato: sandrohaddad@unb.br
+  - Sala: Não informado
+   
+- Suelia de Siqueira Rodrigues Fleury Rosa
+  - E-mail de contato: suelia@unb.br
+  - Sala: Não informado
+     
+- Wellington Avelino do Amaral
+  - E-mail de contato: waamaral@unb.br
+  - Sala: Não informado
+
+## PROFESSORES ENERGIA
+
+- Alex Reis
+  - E-mail de contato: alexreis@unb.br
+  - Sala: 05
+
+- Augusto Cesar de Mendonca Brasil
+  - E-mail de contato: ambrasil@unb.br
+  - Sala: Não informado
+
+- Felix Martin Carbajal Gamarra
+  - E-mail de contato: fcarbajal@unb.br
+  - Sala: Não informado
+
+- Fernando Paiva Scardua
+  - E-mail de contato: fscardua@unb.br
+  - Sala: 18
+
+- Flavio Henrique Justiniano Ribeiro da Silva
+  - E-mail de contato: fhsilva@unb.br
+  - Sala: Não informado
+
+- Jhon Nero Vaz Goulart
+  - E-mail de contato: jvazgoulart@gmail.com
+  - Sala: Não informado
+
+- Jorge Andres Cormane Angarita
+  - E-mail de contato: jcormane@unb.br
+  - Sala: UED26
+
+- Josiane do Socorro Aguiar de Souza de Oliveira Campos
+  - E-mail de contato: josiane@unb.br
+  - Sala: Não informado
+
+- Juliana Petrocchi Rodrigues
+  - E-mail de contato: jpetrocchi@unb.br
+  - Sala: 17
+  
+- Loana Nunes Velasco
+  - E-mail de contato: loana@unb.br
+  - Sala: 26    
+    
+- Luciano Goncalves Noleto  
+  - E-mail de contato: lucianonoleto@unb.br
+  - Sala: 24   
+      
+- Marcelo Bento da Silva 
+  - E-mail de contato: marcelobs@unb.br
+  - Sala: UED 08   
+        
+- Maria Vitoria Duarte Ferrari
+  - E-mail de contato: vitferrari@gmail.com
+  - Sala: Não informado
+          
+- Patricia Regina Sobral Braga
+  - E-mail de contato: patriciabraga@unb.br
+  - Sala: Não informado
+            
+- Paula Meyer Soares
+  - E-mail de contato: paulameyer@unb.br
+  - Sala: 32
+              
+- Roseany de Vasconcelos Vieira Lopes
+  - E-mail de contato: paroseanyuroseanylameyer@unb.br
+  - Sala: Não informado
+                
+- Rudi Henri Van Els
+  - E-mail de contato: rudi@unb.br
+  - Sala: 05
+                  
+- Sandra Maria Faleiros Lima
+  - E-mail de contato: sandralima@unb.br
+  - Sala: Não informado
+                    
+- Vanessa Maria de Castro
+  - E-mail de contato: vcastro@unb.br
+  - Sala: Não informado
+
+## PROFESSORES SOFTWARE
+
 - Andre Luiz Peron Martins Lanna
-    - E-mail de contato: andrelanna@unb.br
-    - Sala: Não informado
-
+  - E-mail de contato: andrelanna@unb.br
+  - Sala: Não informado
 - Bruno Cesar Ribas
-    - E-mail de contato: bruno.ribas@unb.br
-    - Sala: 19
-
+  - E-mail de contato: bruno.ribas@unb.br
+  - Sala: 19
 - Carla Silva Rocha Aguiar
-    - E-mail de contato: caguiar@unb.br
-    - Sala: Não informado
-
+  - E-mail de contato: caguiar@unb.br
+  - Sala: Não informado
 - Cristiane Soares Ramos
-    - E-mail de contato: cristianesramos@unb.br
-    - Sala: Não informado
-
+  - E-mail de contato: cristianesramos@unb.br
+  - Sala: Não informado
 - Daniel Sundfeld Lima
-    - E-mail de contato: daniel.sundfeld@unb.br
-    - Sala: Não informado
-
+  - E-mail de contato: daniel.sundfeld@unb.br
+  - Sala: Não informado
 - Elaine Venson
-    - E-mail de contato: elainevenson@unb.br
-    - Sala: 21
-
+  - E-mail de contato: elainevenson@unb.br
+  - Sala: 21
 - Fabiana Freitas Mendes
-    - E-mail de contato: fabianamendes@unb.br
-    - Sala: 24
-
+  - E-mail de contato: fabianamendes@unb.br
+  - Sala: 24
 - Fabio Macedo Mendes
-    - E-mail de contato: fabiomendes@unb.br
-    - Sala: Não informado
-
+  - E-mail de contato: fabiomendes@unb.br
+  - Sala: Não informado
 - Fernando William Cruz
-    - E-mail de contato: fwcruz@gmail.com
-    - Sala: Não informado
-    
+  - E-mail de contato: fwcruz@gmail.com
+  - Sala: Não informado
 - George Marsicano Correa
-    - E-mail de contato: georgemarsicano@unb.br
-    - Sala: Não informado
-
+  - E-mail de contato: georgemarsicano@unb.br
+  - Sala: Não informado
 - Giovanni Almeida Santos
-    - E-mail de contato: giovannix@unb.br
-    - Sala: Não informado
-
+  - E-mail de contato: giovannix@unb.br
+  - Sala: Não informado
 - Glauco Vitor Pedrosa
-    - E-mail de contato: glauco.pedrosa@unb.br
-    - Sala: Não informado
-
+  - E-mail de contato: glauco.pedrosa@unb.br
+  - Sala: Não informado
 - Hilmer Rodrigues Neri
-    - E-mail de contato: hilmer@unb.br
-    - Sala: Não informado
-
+  - E-mail de contato: hilmer@unb.br
+  - Sala: Não informado
 - Luiz Carlos Miyadaira Ribeiro Junior
-    - E-mail de contato: lcarlos@unb.br
-    - Sala: Não informado
-
+  - E-mail de contato: lcarlos@unb.br
+  - Sala: Não informado
 - Mauricio Serrano
-    - E-mail de contato: serrano@unb.br
-    - Sala: Não informado
-
+  - E-mail de contato: serrano@unb.br
+  - Sala: Não informado
 - Milene Serrano
-    - E-mail de contato: mileneserrano@unb.br
-    - Sala: Não informado
-
+  - E-mail de contato: mileneserrano@unb.br
+  - Sala: Não informado
 - Nilton Correia da Silva
-    - E-mail de contato: niltoncs@unb.br
-    - Sala: AILAB
-
+  - E-mail de contato: niltoncs@unb.br
+  - Sala: AILAB
 - Rejane Maria da Costa Figueiredo
-    - E-mail de contato: rejanecosta@unb.br
-    - Sala: Não informado
-
+  - E-mail de contato: rejanecosta@unb.br
+  - Sala: Não informado
 - Renato Coral Sampaio
-    - E-mail de contato: renatocoral@unb.br
-    - Sala: Não informado
-
+  - E-mail de contato: renatocoral@unb.br
+  - Sala: Não informado
 - Ricardo Ajax Dias Kosloski
-    - E-mail de contato: ricardoajax@unb.br
-    - Sala: Não informado
-
+  - E-mail de contato: ricardoajax@unb.br
+  - Sala: Não informado
 - Ricardo Matos Chaim
-    - E-mail de contato: ricardoc@unb.br
-    - Sala: Não informado
-
+  - E-mail de contato: ricardoc@unb.br
+  - Sala: Não informado
 - Sergio Antonio Andrade de Freitas
-    - E-mail de contato: sergiofreitas@unb.br
-    - Sala: Não informado
-
+  - E-mail de contato: sergiofreitas@unb.br
+  - Sala: Não informado
 - Tiago Alves da Fonseca
-    - E-mail de contato: fonsecafga@unb.br
-    - Sala: Não informado
-
+  - E-mail de contato: fonsecafga@unb.br
+  - Sala: Não informado
 - Vandor Roberto Vilardi Rissoli
-    - E-mail de contato: vandor@unb.br
-    - Sala: 4
+  - E-mail de contato: vandor@unb.br
+  - Sala: 4
 
-Fonte: [Portal do Docente](https://sigaa.unb.br/sigaa/public/docente/busca_docentes.jsf?aba=p-academico), [Coordenação FCTE](https://fcte.unb.br/coordenacao/) e [Estágios FCTE](https://fcte.unb.br/estagio/)
-Atualização: 27/05/2025
+Fonte: [Portal do Docente](https://sigaa.unb.br/sigaa/public/docente/busca_docentes.jsf?aba=p-academico), [Coordenação FCTE](https://fcte.unb.br/coordenacao/) e [Estágios FCTE](https://fcte.unb.br/estagio/) e [Eletrônica - FCTE](https://eletronica.unb.br/corpo-docente/)
+Atualização: 11/06/2025

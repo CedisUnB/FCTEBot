@@ -1,9 +1,13 @@
 # MATRÍCULA
+
+## GERAL
+
 Após o resultado definitivo do registro acadêmico, o(a) candidato(a) aprovado(a) torna-se estudante da Universidade de Brasília e terá acesso a seu número de matrícula, que é o número individual e intransferível que identifica o(a) estudante junto à instituição até o final do curso.
 
-Esse número é gerado assim que os dados do resultado definitivo do registro acadêmico, são recebidos na UnB. Após o recebimento desses dados na UnB, há uma série de procedimentos técnicos que garantirão a incorporação dos dados do(a) calouro(a) nos sistemas da UnB. Um dos resultados desses procedimentos técnicos é a atribuição de um número de matrícula para cada calouro(a). Esse número então será enviado automaticamente para o e-mail informado pelo(a) estudante no ato da inscrição no processo seletivo. Se você não receber esse e-mail, você deve enviar e-mail para saaatendimento@unb.br se identificando e relatando brevemente a situação. Com o número de matrícula em mãos, você poderá acessar o SIGAA, sistema que dará acesso às informações acadêmicas e do curso, à documentos, aos serviços disponíveis e também à grade horária de disciplinas do primeiro semestre, que ficará visível após a efetivação da matrícula em disciplinas pela SAA, ates do início das aulas do primeiro semestre. 
+Esse número é gerado assim que os dados do resultado definitivo do registro acadêmico, são recebidos na UnB. Após o recebimento desses dados na UnB, há uma série de procedimentos técnicos que garantirão a incorporação dos dados do(a) calouro(a) nos sistemas da UnB. Um dos resultados desses procedimentos técnicos é a atribuição de um número de matrícula para cada calouro(a). Esse número então será enviado automaticamente para o e-mail informado pelo(a) estudante no ato da inscrição no processo seletivo. Se você não receber esse e-mail, você deve enviar e-mail para saaatendimento@unb.br se identificando e relatando brevemente a situação. Com o número de matrícula em mãos, você poderá acessar o SIGAA, sistema que dará acesso às informações acadêmicas e do curso, à documentos, aos serviços disponíveis e também à grade horária de disciplinas do primeiro semestre, que ficará visível após a efetivação da matrícula em disciplinas pela SAA, ates do início das aulas do primeiro semestre.
 
 ## MATRÍCULA EM DISCIPLINAS
+
 A matrícula em disciplinas ocorre de forma diferente no semestre de ingresso (primeiro semestre) em relação aos demais semestres do curso. Basicamente, a própria UnB realiza a matrícula dos(as) calouros(as) nas disciplinas do primeiro semestre, mas a partir do segundo semestre as(os) estudantes são responsáveis pelo processo, com autonomia de escolha de disciplinas e turmas, dentro das possibilidades estabelecidas no projeto pedagógico do curso do estudante.
 
 Você ingressou pelo PAS, Vestibular, Acesso Enem, Processo de Vagas Remanescentes, Vestibular LeDoc, Vestibular Indígena e de Libras?

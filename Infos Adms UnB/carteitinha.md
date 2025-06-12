@@ -1,6 +1,8 @@
 # IDENTIDADE ESTUDANTIL
-A Identidade Estudantil deverá ser emitida através do SIGAA > Portal do Discente > Menu Ensino > Emitir Carteirinha Estudantil.
 
+## Informações
+
+A Identidade Estudantil deverá ser emitida através do SIGAA > Portal do Discente > Menu Ensino > Emitir Carteirinha Estudantil.
 
 Para emissão do documento em tamanho adequado, sugerimos o ajuste (na hora da impressão) através do caminho Mais Definições > Escala > Padrão ou Personalizado.
 

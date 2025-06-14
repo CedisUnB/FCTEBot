@@ -102,7 +102,53 @@ async def button(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
             "Aguarde um instante enquanto eu busco essa informação pra você... 🧭",
             parse_mode="Markdown"
         )
-        # Aqui você pode chamar a função que envia o link ou imagem do fluxograma
+
+        # Dicionário com os caminhos dos fluxogramas por curso
+        fluxogramas = {
+            'Engenharia de Software': {
+                '2024': 'imgs/fluxo_software_2024.png',
+                '2017': 'pdfs/Fluxo_Software_2017.pdf'
+            },
+            'Engenharia Aeroespacial': {
+                # '2024': 'pdfs/Fluxo_Aeroespacial_2024.pdf',
+                '2017': 'pdfs/Fluxo_Aeroespacial_2017.pdf'
+            },
+            'Engenharia Automotiva': {
+                # '2024': 'pdfs/Fluxo_Aeroespacial_2024.pdf',
+                # '2017': 'pdfs/Fluxo_Automotiva_2017.pdf'
+            },
+            'Engenharia de Energia': {
+                # '2024': 'pdfs/Fluxo_Aeroespacial_2024.pdf',
+                '2017': 'pdfs/Fluxo_Energia_2017.pdf'
+            }
+        }
+        # Busca os arquivos correspondentes
+        arquivos = fluxogramas.get(curso)
+        if arquivos:
+            # Envia o fluxograma mais recente (2024)
+            with open(arquivos['2024'], 'rb') as fluxo_2024:
+                await context.bot.send_photo(
+                    chat_id=query.message.chat.id,
+                    photo=fluxo_2024,
+                    caption=f"📎 Aqui está o fluxograma mais recente (2024) do curso de {curso}.",
+                    parse_mode="Markdown"
+                )
+
+            # Envia o fluxograma mais antigo (2017)
+            with open(arquivos['2017'], 'rb') as fluxo_2017:
+                await context.bot.send_document(
+                    chat_id=query.message.chat.id,
+                    document=fluxo_2017,
+                    caption=f"📁 Aqui está o fluxograma mais antigo (2017) do curso de {curso}.",
+                    parse_mode="Markdown"
+                )
+        else:
+            # Curso não tem fluxograma disponível
+            await context.bot.send_message(
+                chat_id=query.message.chat.id,
+                text=f"❌ Desculpe, não encontrei fluxogramas cadastrados para o curso de {curso}.",
+                parse_mode="Markdown"
+            )
 
     elif query.data == 'exemplo_matricula':
         await query.edit_message_text(

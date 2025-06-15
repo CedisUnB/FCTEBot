@@ -3,7 +3,7 @@ from telegram import InlineKeyboardButton, InlineKeyboardMarkup
 def create_menu():
     keyboard = [
         [InlineKeyboardButton("📊 Escolher Curso", callback_data='cursos')],
-        [InlineKeyboardButton("ℹ️ Contexto Geral", callback_data='contexto')],
+        [InlineKeyboardButton("ℹ️ Engenharias", callback_data='contexto')],
     ]
     return InlineKeyboardMarkup(keyboard)
 

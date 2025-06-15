@@ -3,7 +3,7 @@
 Atendimento Presencial:
 Segunda a sexta-feira
 Horário: 07h-19h.
-Loca: prédio UAC
+Local: prédio UAC
 
 Contatos:
 Email: secretaria.fcte@unb.br

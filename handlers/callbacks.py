@@ -17,12 +17,24 @@ def create_perguntas_exemplo(context=None):
     if context and 'curso' in context.chat_data:
         curso = context.chat_data['curso']
 
-    keyboard = [
-        [InlineKeyboardButton(f"📌 Qual o fluxograma do curso de {curso}?", callback_data='exemplo_fluxograma')],
-        [InlineKeyboardButton("🗓️ Como faço a matrícula?", callback_data='exemplo_matricula')],
-        [InlineKeyboardButton("📧 Como entrar em contato com professores?", callback_data='exemplo_contato')],
-        [InlineKeyboardButton("🔙 Voltar", callback_data='menu')]
-    ]
+    keyboard = []
+
+    # Só adiciona a pergunta do fluxograma se o curso for específico (≠ 'Engenharias')
+    if curso != 'Engenharias':
+        keyboard.append(
+            [InlineKeyboardButton(f"📌 Qual o fluxograma do curso de {curso}?", callback_data='exemplo_fluxograma')]
+        )
+
+    keyboard.append([InlineKeyboardButton("🗓️ Como faço a matrícula?", callback_data='exemplo_matricula')])
+
+    # Adiciona botão específico dependendo do curso
+    if curso == 'Engenharias':
+        keyboard.append([InlineKeyboardButton("📧 Qual o e-mail dos professores do ciclo básico?", callback_data='exemplo_contato')])
+    else:
+        keyboard.append([InlineKeyboardButton("📧 Qual o e-mail dos professores?", callback_data='exemplo_contato')])
+
+    keyboard.append([InlineKeyboardButton("🔙 Voltar", callback_data='menu')])
+
     return InlineKeyboardMarkup(keyboard)
 
 def create_feedback_buttons():
@@ -126,10 +138,10 @@ async def handle_feedback_button(update: Update, context: ContextTypes.DEFAULT_T
     feedback_given = None
     if query.data == 'feedback_yes':
         feedback_given = True
-        await query.edit_message_text("Obrigado pelo seu feedback! 😊 Fico feliz em ajudar.")
+        await query.edit_message_text("Obrigado pelo seu feedback! 😊 Fico feliz em ajudar. Para iniciar uma nova conversa digite /start")
     elif query.data == 'feedback_no':
         feedback_given = False
-        await query.edit_message_text("Obrigado pelo seu feedback! 👍 Vou continuar aprendendo para te ajudar melhor da próxima vez.")
+        await query.edit_message_text("Obrigado pelo seu feedback! 👍 Vou continuar aprendendo para te ajudar melhor da próxima vez. \n Enquanto isso, entre em contato com a secretaria do campus para obter a resposta que deseja: (61) 3107-8901.\n Para iniciar uma nova conversa digite /start")
 
     if feedback_given is not None:
         save_feedback(chat_id, feedback_given)
@@ -149,11 +161,11 @@ async def button(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
         context.chat_data['contexto'] = True
         await query.edit_message_text(
             "👋 Olá! Seja bem-vindo(a) ao assistente virtual da UnB – FGA!\n\n"
-            "Estou aqui para te ajudar com dúvidas administrativas sobre o campus, como informações sobre matrícula, calendário acadêmico, fluxogramas, estágios, entre outros temas do dia a dia universitário.\n"
+            "Estou aqui para te ajudar com dúvidas administrativas sobre o campus, como informações sobre matrícula, fluxogramas, estágios, entre outros temas do dia a dia universitário.\n"
             "Você pode digitar sua dúvida normalmente ou escolher uma das perguntas de exemplo que aparecem abaixo.\n\n"
             "📌 *Exemplo:*\n"
-            "Você pode perguntar algo como: *\"Qual o fluxograma do curso de Engenharias?\"*\n"
-            "Nesse caso, eu te respondo com o link ou imagem do fluxograma mais atualizado disponível!\n\n"
+            "Você pode perguntar algo como: *\"Como faço a matrícula?\"*\n"
+            "Nesse caso, eu te respondo com as principais informações sobre como fazer a matrícula sendo calouro, transferido ou veterano!\n\n"
             "💬 Agora é só escolher uma das perguntas sugeridas ou digitar a sua dúvida. Estou pronto para te ajudar!",
             parse_mode="Markdown",
             reply_markup=create_perguntas_exemplo(context)
@@ -204,11 +216,11 @@ async def button(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
                 '2017': 'imgs/2017/Fluxo_Aeroespacial_2017.jpeg'
             },
             'Engenharia Automotiva': {
-                '2024': 'pdfs/2024/Fluxo_Automotiva_2024.png',
+                '2024': 'imgs/2024/Fluxo_Automotiva_2024.png',
                 '2017': 'imgs/2017/Fluxo_Automotiva_2017.jpeg'
             },
             'Engenharia de Energia': {
-                '2024': 'pdfs/2024/Fluxo_Energia_2024.png',
+                '2024': 'imgs/2024/Fluxo_Energia_2024.png',
                 '2017': 'imgs/2017/Fluxo_Energia_2017.jpeg'
             },
             'Engenharia Eletrônica': {
@@ -216,8 +228,18 @@ async def button(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
                 '2017': 'imgs/2017/Fluxo_Eletronica_2017.png'
             }
         }
+
+        # Dicionário com a fonte por curso
+        fontes = {
+            'Engenharia de Software': 'https://software.unb.br/ensino/estrutura-curricular',
+            'Engenharia Aeroespacial': 'https://fcte.unb.br/engenharia-aeroespacial/',
+            'Engenharia Automotiva': 'https://fcte.unb.br/engenharia-automotiva/',
+            'Engenharia de Energia': 'https://fcte.unb.br/engenharia-de-energia/',
+            'Engenharia Eletrônica': 'https://eletronica.unb.br/matriz-curricular/'
+        }
         # Busca os arquivos correspondentes
         arquivos = fluxogramas.get(curso)
+        fonte = fontes.get(curso, 'Coordenação do curso')
         if arquivos:
             # Envia o fluxograma mais recente (2024)
             if '2024' in arquivos: # Verifica se a chave existe
@@ -226,7 +248,10 @@ async def button(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
                         await context.bot.send_photo(
                             chat_id=query.message.chat.id,
                             photo=fluxo_2024,
-                            caption=f"📎 Aqui está o fluxograma mais recente (2024) do curso de {curso}.",
+                            caption=(
+                                f"📎 Aqui está o fluxograma mais recente (2024) do curso de {curso}.\n\n"
+                                f"📚 *Fonte:* {fonte}"
+                            ),
                             parse_mode="Markdown"
                         )
                 except FileNotFoundError:
@@ -240,13 +265,15 @@ async def button(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
                         await context.bot.send_photo(
                             chat_id=query.message.chat.id,
                             photo=fluxo_2017,
-                            caption=f"📁 Aqui está o fluxograma mais antigo (2017) do curso de {curso}.",
+                            caption=(
+                                f"📁 Aqui está o fluxograma mais antigo (2017) do curso de {curso}.\n\n"
+                                f"📚 *Fonte:* {fonte}"
+                            ),
                             parse_mode="Markdown"
                         )
                 except FileNotFoundError:
                     logger.error(f"Arquivo não encontrado: {arquivos['2017']}")
                     await context.bot.send_message(chat_id=query.message.chat.id, text=f"Desculpe, o arquivo do fluxograma de 2017 para {curso} não foi encontrado.")
-            
             if not ('2024' in arquivos or '2017' in arquivos): # Se nenhuma chave foi encontrada
                  await context.bot.send_message(
                     chat_id=query.message.chat.id,
@@ -260,7 +287,11 @@ async def button(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
                 text=f"❌ Desculpe, não encontrei fluxogramas cadastrados para o curso de {curso}.",
                 parse_mode="Markdown"
             )
-
+        await context.bot.send_message(
+            chat_id=query.message.chat.id,
+            text="ℹ️ Se quiser, posso te ajudar com outras informações também!",
+            reply_markup=create_perguntas_exemplo(context)
+        )
 
     elif query.data in ['exemplo_matricula', 'exemplo_contato']:
         user_question_text = ""
@@ -269,7 +300,10 @@ async def button(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
         if query.data == 'exemplo_matricula':
             user_question_text = "Como faço a matrícula?"
         elif query.data == 'exemplo_contato':
-            user_question_text = "Como entrar em contato com os professores?"
+            if curso_para_contexto_rag == 'Engenharias':
+                user_question_text = "Qual o e-mail dos professores do ciclo básico?"
+            else:
+                user_question_text = "Como entrar em contato com os professores?"
 
         pergunta_para_rag = f"No contexto de {curso_para_contexto_rag}: {user_question_text}"
 

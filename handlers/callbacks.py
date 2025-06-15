@@ -196,20 +196,24 @@ async def button(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
         # Dicionário com os caminhos dos fluxogramas por curso
         fluxogramas = {
             'Engenharia de Software': {
-                '2024': 'imgs/fluxo_software_2024.png',
-                '2017': 'pdfs/Fluxo_Software_2017.pdf'
+                '2024': 'imgs/2024/Fluxo_Software_2024.png',
+                '2017': 'imgs/2017/Fluxo_Software_2017.jpeg'
             },
             'Engenharia Aeroespacial': {
-                # '2024': 'pdfs/Fluxo_Aeroespacial_2024.pdf',
-                '2017': 'pdfs/Fluxo_Aeroespacial_2017.pdf'
+                '2024': 'imgs/2024/Fluxo_Aeroespacial_2024.png',
+                '2017': 'imgs/2017/Fluxo_Aeroespacial_2017.jpeg'
             },
             'Engenharia Automotiva': {
-                # '2024': 'pdfs/Fluxo_Aeroespacial_2024.pdf',
-                # '2017': 'pdfs/Fluxo_Automotiva_2017.pdf'
+                '2024': 'pdfs/2024/Fluxo_Automotiva_2024.png',
+                '2017': 'imgs/2017/Fluxo_Automotiva_2017.jpeg'
             },
             'Engenharia de Energia': {
+                '2024': 'pdfs/2024/Fluxo_Energia_2024.png',
+                '2017': 'imgs/2017/Fluxo_Energia_2017.jpeg'
+            },
+            'Engenharia Eletrônica': {
                 # '2024': 'pdfs/Fluxo_Aeroespacial_2024.pdf',
-                '2017': 'pdfs/Fluxo_Energia_2017.pdf'
+                '2017': 'imgs/2017/Fluxo_Eletronica_2017.png'
             }
         }
         # Busca os arquivos correspondentes
@@ -233,9 +237,9 @@ async def button(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
             if '2017' in arquivos: # Verifica se a chave existe
                 try:
                     with open(arquivos['2017'], 'rb') as fluxo_2017:
-                        await context.bot.send_document(
+                        await context.bot.send_photo(
                             chat_id=query.message.chat.id,
-                            document=fluxo_2017,
+                            photo=fluxo_2017,
                             caption=f"📁 Aqui está o fluxograma mais antigo (2017) do curso de {curso}.",
                             parse_mode="Markdown"
                         )

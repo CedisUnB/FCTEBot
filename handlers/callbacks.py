@@ -1,6 +1,15 @@
+import asyncio
 from telegram import Update, InlineKeyboardButton, InlineKeyboardMarkup
 from telegram.ext import ContextTypes
 from handlers.menus import create_menu, create_cursos_menu
+from utils.db_helper import save_feedback
+from rag import responder
+import logging
+
+logger = logging.getLogger(__name__)
+
+INACTIVITY_TIMEOUT_ASK_FEEDBACK = 120
+INACTIVITY_TIMEOUT_END_CONVERSATION = 180
 
 # Cria o menu com perguntas de exemplo
 def create_perguntas_exemplo(context=None):
@@ -16,47 +25,128 @@ def create_perguntas_exemplo(context=None):
     ]
     return InlineKeyboardMarkup(keyboard)
 
-# Função para finalizar a conversa por inatividade
-async def end_conversation(context: ContextTypes.DEFAULT_TYPE) -> None:
+def create_feedback_buttons():
+    keyboard = [
+        [
+            InlineKeyboardButton("👍 Sim", callback_data='feedback_yes'),
+            InlineKeyboardButton("👎 Não", callback_data='feedback_no')
+        ]
+    ]
+    return InlineKeyboardMarkup(keyboard)
+
+# Função para pedir feedback após inatividade
+async def ask_for_feedback(context: ContextTypes.DEFAULT_TYPE) -> None:
     job = context.job
-    await context.bot.send_message(
-        chat_id=job.chat_id,
-        text="⏱️ A conversa foi encerrada por inatividade. Envie /start para começar novamente."
-    )
+    chat_id = job.chat_id
+    try:
+        await context.bot.send_message(
+            chat_id=chat_id,
+            text="⏳ Parece que você está inativo(a). Consegui te ajudar com sua dúvida?",
+            reply_markup=create_feedback_buttons()
+        )
+        # Agenda o encerramento final da conversa se não houver resposta ao feedback
+        new_job_end = context.job_queue.run_once(
+            end_conversation_final,
+            INACTIVITY_TIMEOUT_END_CONVERSATION,
+            chat_id=chat_id,
+            name=f"final_end_job_{chat_id}"
+        )
+        context.chat_data["final_end_conversation_job"] = new_job_end
+        logger.info(f"Pedido de feedback enviado para {chat_id}. Job de encerramento final agendado.")
+    except Exception as e:
+        logger.error(f"Erro ao enviar pedido de feedback para {chat_id}: {e}")
 
-    # Limpa os dados do chat e do usuário (opcional)
-    context.chat_data.clear()
-    context.user_data.clear()
 
-# Reinicia o temporizador sempre que o usuário interage
+# Função para finalizar a conversa por inatividade (após o pedido de feedback não respondido)
+async def end_conversation_final(context: ContextTypes.DEFAULT_TYPE) -> None:
+    job = context.job
+    chat_id = job.chat_id
+    try:
+        await context.bot.send_message(
+            chat_id=chat_id,
+            text="⏱️ A conversa foi encerrada por inatividade. Envie /start para começar novamente."
+        )
+        logger.info(f"Conversa com {chat_id} encerrada por inatividade final.")
+    except Exception as e:
+        logger.error(f"Erro ao encerrar conversa final com {chat_id}: {e}")
+    finally:
+        # Limpa os dados do chat e do usuário
+        context.chat_data.clear()
+        context.user_data.clear()
+
+# Reinicia o(s) temporizador(es) sempre que o usuário interage
 async def reset_timer(chat_id, context: ContextTypes.DEFAULT_TYPE):
-    old_job = context.chat_data.get("end_conversation_job")
-
-    if old_job:
+    current_ask_feedback_job = context.chat_data.get("ask_feedback_job")
+    if current_ask_feedback_job:
         try:
-            old_job.schedule_removal()
+            current_ask_feedback_job.schedule_removal()
+            logger.debug(f"Job 'ask_feedback_job' para {chat_id} removido.")
         except Exception as e:
-            # Log opcional: print(f"Erro ao remover job antigo: {e}")
-            pass
+            logger.warning(f"Erro ao remover job 'ask_feedback_job' antigo para {chat_id}: {e}")
 
-    new_job = context.job_queue.run_once(end_conversation, 30, chat_id=chat_id)
-    context.chat_data["end_conversation_job"] = new_job
+    current_final_end_job = context.chat_data.get("final_end_conversation_job")
+    if current_final_end_job:
+        try:
+            current_final_end_job.schedule_removal()
+            logger.debug(f"Job 'final_end_conversation_job' para {chat_id} removido.")
+        except Exception as e:
+            logger.warning(f"Erro ao remover job 'final_end_conversation_job' antigo para {chat_id}: {e}")
+
+    new_ask_feedback_job = context.job_queue.run_once(
+        ask_for_feedback,
+        INACTIVITY_TIMEOUT_ASK_FEEDBACK,
+        chat_id=chat_id,
+        name=f"ask_feedback_job_{chat_id}"
+    )
+    context.chat_data["ask_feedback_job"] = new_ask_feedback_job
+    logger.info(f"Timer resetado para {chat_id}. Job de pedir feedback agendado.")
+
 
 # Comando /start
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
     await update.message.reply_text("Olá! Escolha uma das opções abaixo:", reply_markup=create_menu())
     await reset_timer(update.effective_chat.id, context)
 
-# Handler dos botões
+# Handler dos botões de feedback
+async def handle_feedback_button(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
+    query = update.callback_query
+    await query.answer()
+    chat_id = update.effective_chat.id
+
+    # Remove o job de encerramento final, pois o usuário respondeu ao feedback
+    final_end_job = context.chat_data.get("final_end_conversation_job")
+    if final_end_job:
+        try:
+            final_end_job.schedule_removal()
+            logger.info(f"Job de encerramento final para {chat_id} cancelado devido à resposta de feedback.")
+        except Exception as e:
+            logger.warning(f"Erro ao remover job de encerramento final para {chat_id}: {e}")
+        context.chat_data.pop("final_end_conversation_job", None)
+
+    feedback_given = None
+    if query.data == 'feedback_yes':
+        feedback_given = True
+        await query.edit_message_text("Obrigado pelo seu feedback! 😊 Fico feliz em ajudar.")
+    elif query.data == 'feedback_no':
+        feedback_given = False
+        await query.edit_message_text("Obrigado pelo seu feedback! 👍 Vou continuar aprendendo para te ajudar melhor da próxima vez.")
+
+    if feedback_given is not None:
+        save_feedback(chat_id, feedback_given)
+
+    logger.info(f"Feedback recebido de {chat_id}. Encerrando sessão de interação ativa.")
+    context.chat_data.clear()
+    context.user_data.clear()
+
 async def button(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
     query = update.callback_query
     await query.answer()
 
-    await reset_timer(update.effective_chat.id, context)
+    await reset_timer(update.effective_chat.id, context) # Reset timer em qualquer interação de botão
 
     if query.data == 'contexto':
-        context.chat_data['curso'] = 'Engenharias'
-        context.chat_data['contexto'] = True  # ADICIONADO
+        context.chat_data['curso'] = 'Engenharias' # Default se contexto geral
+        context.chat_data['contexto'] = True
         await query.edit_message_text(
             "👋 Olá! Seja bem-vindo(a) ao assistente virtual da UnB – FGA!\n\n"
             "Estou aqui para te ajudar com dúvidas administrativas sobre o campus, como informações sobre matrícula, calendário acadêmico, fluxogramas, estágios, entre outros temas do dia a dia universitário.\n"
@@ -82,6 +172,7 @@ async def button(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
         }
         curso_nome = cursos_dict.get(query.data, 'Engenharias')
         context.chat_data['curso'] = curso_nome
+        context.chat_data['contexto'] = False # Define contexto como falso se um curso é escolhido
 
         await query.edit_message_text(
             f"👋 Você selecionou *{curso_nome}*!\n\n"
@@ -102,7 +193,6 @@ async def button(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
             "Aguarde um instante enquanto eu busco essa informação pra você... 🧭",
             parse_mode="Markdown"
         )
-
         # Dicionário com os caminhos dos fluxogramas por curso
         fluxogramas = {
             'Engenharia de Software': {
@@ -126,20 +216,37 @@ async def button(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
         arquivos = fluxogramas.get(curso)
         if arquivos:
             # Envia o fluxograma mais recente (2024)
-            with open(arquivos['2024'], 'rb') as fluxo_2024:
-                await context.bot.send_photo(
-                    chat_id=query.message.chat.id,
-                    photo=fluxo_2024,
-                    caption=f"📎 Aqui está o fluxograma mais recente (2024) do curso de {curso}.",
-                    parse_mode="Markdown"
-                )
+            if '2024' in arquivos: # Verifica se a chave existe
+                try:
+                    with open(arquivos['2024'], 'rb') as fluxo_2024:
+                        await context.bot.send_photo(
+                            chat_id=query.message.chat.id,
+                            photo=fluxo_2024,
+                            caption=f"📎 Aqui está o fluxograma mais recente (2024) do curso de {curso}.",
+                            parse_mode="Markdown"
+                        )
+                except FileNotFoundError:
+                    logger.error(f"Arquivo não encontrado: {arquivos['2024']}")
+                    await context.bot.send_message(chat_id=query.message.chat.id, text=f"Desculpe, o arquivo do fluxograma de 2024 para {curso} não foi encontrado.")
 
             # Envia o fluxograma mais antigo (2017)
-            with open(arquivos['2017'], 'rb') as fluxo_2017:
-                await context.bot.send_document(
+            if '2017' in arquivos: # Verifica se a chave existe
+                try:
+                    with open(arquivos['2017'], 'rb') as fluxo_2017:
+                        await context.bot.send_document(
+                            chat_id=query.message.chat.id,
+                            document=fluxo_2017,
+                            caption=f"📁 Aqui está o fluxograma mais antigo (2017) do curso de {curso}.",
+                            parse_mode="Markdown"
+                        )
+                except FileNotFoundError:
+                    logger.error(f"Arquivo não encontrado: {arquivos['2017']}")
+                    await context.bot.send_message(chat_id=query.message.chat.id, text=f"Desculpe, o arquivo do fluxograma de 2017 para {curso} não foi encontrado.")
+            
+            if not ('2024' in arquivos or '2017' in arquivos): # Se nenhuma chave foi encontrada
+                 await context.bot.send_message(
                     chat_id=query.message.chat.id,
-                    document=fluxo_2017,
-                    caption=f"📁 Aqui está o fluxograma mais antigo (2017) do curso de {curso}.",
+                    text=f"❌ Desculpe, não encontrei arquivos de fluxogramas cadastrados para o curso de {curso}.",
                     parse_mode="Markdown"
                 )
         else:
@@ -150,19 +257,41 @@ async def button(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
                 parse_mode="Markdown"
             )
 
-    elif query.data == 'exemplo_matricula':
+
+    elif query.data in ['exemplo_matricula', 'exemplo_contato']:
+        user_question_text = ""
+        curso_para_contexto_rag = context.chat_data.get('curso', 'Engenharias')
+
+        if query.data == 'exemplo_matricula':
+            user_question_text = "Como faço a matrícula?"
+        elif query.data == 'exemplo_contato':
+            user_question_text = "Como entrar em contato com os professores?"
+
+        pergunta_para_rag = f"No contexto de {curso_para_contexto_rag}: {user_question_text}"
+
         await query.edit_message_text(
-            "📚 Você perguntou: *Como faço a matrícula?*\n\n"
-            "A matrícula é feita pelo SIGAA, dentro do prazo definido no calendário acadêmico. Se precisar de ajuda, posso te mostrar o passo a passo!",
+            f"🔍 Você selecionou o exemplo: *{user_question_text}*\n\n"
+            "Aguarde um instante enquanto eu busco essa informação pra você... 🧭",
             parse_mode="Markdown"
         )
 
-    elif query.data == 'exemplo_contato':
-        await query.edit_message_text(
-            "📧 Você perguntou: *Como entrar em contato com os professores?*\n\n"
-            "Você pode encontrar os e-mails dos professores no site da FGA ou no SIGAA, na seção da disciplina em que ele leciona.",
-            parse_mode="Markdown"
-        )
+        try:
+            resposta_rag = await asyncio.to_thread(responder, pergunta_para_rag)
+
+            await query.edit_message_text(
+                text=f"💬 {resposta_rag}",
+                parse_mode="HTML",
+                reply_markup=create_perguntas_exemplo(context)
+            )
+        except Exception as e:
+            logger.error(f"Erro ao obter resposta do RAG para pergunta de exemplo '{query.data}': {e}")
+            await query.edit_message_text(
+                text="❌ Desculpe, ocorreu um erro ao processar sua pergunta de exemplo. Por favor, tente digitar sua dúvida ou volte ao menu.",
+                reply_markup=create_perguntas_exemplo(context)
+            )
 
     elif query.data == 'menu':
+        # Ao voltar para o menu principal, limpamos o curso e contexto para forçar nova seleção.
+        context.chat_data.pop('curso', None)
+        context.chat_data.pop('contexto', None)
         await query.edit_message_text("Olá! Escolha uma das opções abaixo:", reply_markup=create_menu())

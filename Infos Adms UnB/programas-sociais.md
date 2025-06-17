@@ -30,3 +30,6 @@ Na FCTE, A DDS está presente da seguinte forma:
 Para maiores informações sobre a a SPS, veja em [contatos](https://fcte.unb.br/contato/)
 
 Para maiores informações sobre os programas, editais, legislações e notícias acesse: https://dds.dac.unb.br/
+
+Fonte: [Programas Sociais - FCTE](https://fcte.unb.br/assistencia-estudantil/)
+Atualização: 16/06/2025

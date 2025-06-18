@@ -5,7 +5,7 @@
 - Leandro Xavier Cardoso (Diretor)
   - E-mail de contato: leandrocardoso@unb.br
   - Sala: Não informado
-- André Barros de Sales
+- André Barros de Sales (Vice-Diretor)
   - E-mail de contato: andrebdes@unb.br
   - Sala: 20
 
@@ -91,7 +91,7 @@
 - Eberth de Almeida Correa
   - E-mail de contato: eberth@unb.br
   - Sala: 23
-- Leandro Xavier Cardoso
+- Leandro Xavier Cardoso (Diretor)
   - E-mail de contato: leandrocardoso@unb.br
   - Sala: Não informado
 - Lindomar Bomfim de Carvalho de Jesus
@@ -100,10 +100,10 @@
 - Luiza Yoko Taneguti
   - E-mail de contato: taneguti@unb.br
   - Sala: 32
-- Marília Miranda Forte Gomes
+- Marília Miranda Forte Gomes (Coordenadora de Pós-Graduação Biomédica)
   - E-mail de contato: mariliamfg@unb.br
   - Sala: Não informado
-- Matheus Bernardini de Souza
+- Matheus Bernardini de Souza (Coordenador de Ciências Naturais Aplicadas - Ciclo Básico)
   - E-mail de contato: matheusbernardini@unb.br
   - Sala: 34
 - Rafael Morgado Silva
@@ -139,10 +139,10 @@
 - Artem Andrianov
   - E-mail de contato: andrianov@unb.br
   - Sala: Não informado
-- Artur Elias de Morais Bertoldi 
+- Artur Elias de Morais Bertoldi (Coordenador do Curso de Aeroespacial)
   - E-mail de contato: bertoldi@unb.br
   - Sala: 11
-- Fábio Alfaia da Cunha
+- Fábio Alfaia da Cunha (Coordenador de Estágio de Aeroespacial)
   - E-mail de contato: fabioalfaia@unb.br
   - Sala: 09
 - Gabriela Cunha Possa
@@ -163,7 +163,7 @@
 - Ronne Toledo
   - E-mail de contato: rtoledo@unb.br
   - Sala: Não informado
-- Sebastien Roland Marie Joseph Rondineau 
+- Sebastien Roland Marie Joseph Rondineau (Coordenador de Pesquisa e Inovação)
   - E-mail de contato: sebastien@unb.br
   - Sala: 31
 - Sergio Henrique da Silva Carneiro
@@ -208,7 +208,7 @@
 - Henrique Gomes de Moura
   - E-mail de contato: hgmoura@yahoo.com
   - Sala: 13
-- Himilsys Hernández Gonzáles
+- Himilsys Hernández Gonzáles (Coordenador do Curso de Automotiva)
   - E-mail de contato: himilsys@unb.br
   - Sala: Sala da Coordenação – Prédio UAC
 - Maria Alzira de Araujo Nunes
@@ -223,7 +223,7 @@
 - Maura Angelica Milfont Shzu
   - E-mail de contato: maura@unb.br
   - Sala: Não informado
-- Rhander Viana
+- Rhander Viana (Coordenador de Estágio de Automotiva)
   - E-mail de contato: rhander@unb.br
   - Sala: 13
 - Rita de Cassia Silva
@@ -250,7 +250,7 @@
 - Cristiano Jacques Miosso Rodrigues Mendes
   - E-mail de contato: cristiano.jacques@gmail.com
   - Sala: Não informado
-- Daniel Costa Araújo
+- Daniel Costa Araújo (Coordenador do Curso de Eletrônica)
     - E-mail de contato: daniel.c.araujo@gmail.com
     - Sala: Sala da Coordenação – Prédio UAC
 - Daniel Mauricio Munoz Arboleda
@@ -292,7 +292,7 @@
 - Marcus Vinicius Batistuta
   - E-mail de contato: batistuta@unb.br
   - Sala: Não informado
-- Marcus Vinícius Chaffim Costa
+- Marcus Vinícius Chaffim Costa (Coordenador de Estágio de Eletrônica)
   - E-mail de contato: chaffim@unb.br
   - Sala: 11
 - Marcus Vinicius Chaffim Costa
@@ -322,13 +322,13 @@
 - Alex Reis
   - E-mail de contato: alexreis@unb.br
   - Sala: 05
-- Andreia Alves Costa Lindinger
+- Andreia Alves Costa Lindinger (Coordenador do Curso de Energia)
   - E-mail de contato: andreiaacosta@unb.br
   - Sala: Sala da Coordenação – Prédio UAC
 - Augusto Cesar de Mendonca Brasil
   - E-mail de contato: ambrasil@unb.br
   - Sala: Não informado
-- Felipe Chagas Storti
+- Felipe Chagas Storti (Coordenador de Estágio de Energia)
   - E-mail de contato: storti@unb.br
   - Sala: 13
 - Felix Martin Carbajal Gamarra
@@ -361,13 +361,13 @@
 - Marcelo Bento da Silva 
   - E-mail de contato: marcelobs@unb.br
   - Sala: UED 08  
-- Maria Del Pilar Hidalgo Falla 
+- Maria Del Pilar Hidalgo Falla (Coordenadora de Pós-Graduação Integridade) 
   - E-mail de contato: pilar@unb.br
   - Sala: Não informado         
 - Maria Vitoria Duarte Ferrari
   - E-mail de contato: vitferrari@gmail.com
   - Sala: Não informado          
-- Patricia Regina Sobral Braga
+- Patrícia Regina Sobral Braga (Coordenadora de Extensão)
   - E-mail de contato: patriciabraga@unb.br
   - Sala: Não informado            
 - Paula Meyer Soares
@@ -388,7 +388,7 @@
 
 ## PROFESSORES SOFTWARE
 
-- André Barros de Sales
+- André Barros de Sales (Vice-Diretor)
   - E-mail de contato: andrebdes@unb.br
   - Sala: 20
 - Andre Luiz Peron Martins Lanna
@@ -406,7 +406,7 @@
 - Daniel Sundfeld Lima
   - E-mail de contato: daniel.sundfeld@unb.br
   - Sala: Não informado
-- Edson Alves da Costa Junior 
+- Edson Alves da Costa Junior (Coordenador de Estágio de Software)
   - E-mail de contato: edsonalves@unb.br
   - Sala: 20
 - Elaine Venson
@@ -433,7 +433,7 @@
 - Hilmer Rodrigues Neri
   - E-mail de contato: hilmer@unb.br
   - Sala: Não informado
-- John Lenon Cardoso Gardenghi
+- John Lenon Cardoso Gardenghi (Coordenador do Curso de Software)
     - E-mail de contato: john.gardenghi@unb.br
     - Sala: 22
 - Luiz Carlos Miyadaira Ribeiro Junior
@@ -469,7 +469,7 @@
 - Vandor Roberto Vilardi Rissoli
   - E-mail de contato: vandor@unb.br
   - Sala: 4
-- Wander Cleber Maria Pereira da Silva 
+- Wander Cleber Maria Pereira da Silva (Coordenador Acadêmico)
   - E-mail de contato: wandercleber@unb.br
   - Sala: 21
 

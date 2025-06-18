@@ -10,7 +10,7 @@ São consideradas atividades de extensão universitária as intervenções que e
 
 ## AÇÕES DE EXTENSÃO
 
-Para encontrar as ações de extensão existentes na FCTE, acesso [link no SIGAA](https://sigaa.unb.br/sigaa/public/extensao/consulta_extensao.jsf?acao=2&aba=p-extensao)
+Para encontrar as ações de extensão existentes na FCTE, acesso link no SIGAA: https://sigaa.unb.br/sigaa/public/extensao/consulta_extensao.jsf?acao=2&aba=p-extensao
 
 ## COORDENAÇÃO DE EXTENSÃO
 Coordenadora de Extensão:

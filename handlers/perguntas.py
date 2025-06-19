@@ -4,6 +4,7 @@ from telegram import Update
 from telegram.ext import ContextTypes
 from rag import responder
 from handlers.callbacks import reset_timer # IMPORTAR
+from handlers.menus import create_menu  # Importa os botões
 
 async def responder_pergunta(update: Update, context: ContextTypes.DEFAULT_TYPE):
     chat_id = update.effective_chat.id
@@ -17,7 +18,8 @@ async def responder_pergunta(update: Update, context: ContextTypes.DEFAULT_TYPE)
 
     if not curso and not contexto_geral: # Verificação atualizada
         await update.message.reply_text(
-            "❗ Antes de fazer uma pergunta, por favor selecione um curso ou o contexto geral usando /start."
+            "❗ Antes de fazer uma pergunta, por favor selecione um curso ou o contexto de engenharias:", # adicionar as opções de curso ou contexto geral 
+            reply_markup=create_menu()
         )
         return
 

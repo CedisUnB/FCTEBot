@@ -39,7 +39,7 @@ system_message = (
 chat_history = []
 
 def get_relevant_chunk(query, vectorstore):
-    results = vectorstore.similarity_search(query, k=10)  # Pode ajustar k se quiser
+    results = vectorstore.similarity_search(query, k=30)  # Pode ajustar k se quiser
     if results:
         partes = []
         fontes_vistas = set()

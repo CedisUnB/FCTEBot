@@ -116,8 +116,15 @@ async def reset_timer(chat_id, context: ContextTypes.DEFAULT_TYPE):
 
 # Comando /start
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
-    await update.message.reply_text("Olá! Escolha uma das opções abaixo:", reply_markup=create_menu())
+    welcome_message = (
+        "👋 Olá! Seja bem-vindo(a) ao assistente virtual da UnB – FGA!\n\n"
+        "Estou aqui para te ajudar com dúvidas administrativas sobre o campus, como informações sobre matrícula, fluxogramas, estágios, entre outros temas gerais do dia a dia universitário.\n\n"
+        "Para iniciar, selecione *Engenharias* ou o seu curso abaixo. Você também pode digitar sua dúvida se preferir.\n\n"
+        "👇 Escolha uma das opções:"
+    )
+    await update.message.reply_text(welcome_message, parse_mode="Markdown", reply_markup=create_menu())
     await reset_timer(update.effective_chat.id, context)
+
 
 # Handler dos botões de feedback
 async def handle_feedback_button(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
@@ -157,19 +164,21 @@ async def button(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
     await reset_timer(update.effective_chat.id, context) # Reset timer em qualquer interação de botão
 
     if query.data == 'contexto':
-        context.chat_data['curso'] = 'Engenharias' # Default se contexto geral
+        context.chat_data['curso'] = 'Engenharias'  # Default se contexto geral
         context.chat_data['contexto'] = True
         await query.edit_message_text(
-            "👋 Olá! Seja bem-vindo(a) ao assistente virtual da UnB – FGA!\n\n"
-            "Estou aqui para te ajudar com dúvidas administrativas sobre o campus, como informações sobre matrícula, fluxogramas, estágios, entre outros temas do dia a dia universitário.\n"
+            "👋 Você selecionou o contexto geral das *Engenharias*.\n\n"
             "Você pode digitar sua dúvida normalmente ou escolher uma das perguntas de exemplo que aparecem abaixo.\n\n"
             "📌 *Exemplo:*\n"
             "Você pode perguntar algo como: *\"Como faço a matrícula?\"*\n"
             "Nesse caso, eu te respondo com as principais informações sobre como fazer a matrícula sendo calouro, transferido ou veterano!\n\n"
+            "⚠️ *IMPORTANTE:*\n"
+            "Lembre-se que não sou capaz de trazer informações *pessoais* sobre você e nem consigo acompanhar um diálogo com várias mensagens.\n"
+            "Então, envie suas perguntas de forma *clara e completa*, com o *contexto necessário*, para que eu possa ajudar da melhor forma!\n\n"
             "💬 Agora é só escolher uma das perguntas sugeridas ou digitar a sua dúvida. Estou pronto para te ajudar!",
             parse_mode="Markdown",
             reply_markup=create_perguntas_exemplo(context)
-        )
+    )
 
     elif query.data == 'cursos':
         await query.edit_message_text("📊 Escolha um Curso:", reply_markup=create_cursos_menu())
@@ -188,15 +197,18 @@ async def button(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
 
         await query.edit_message_text(
             f"👋 Você selecionou *{curso_nome}*!\n\n"
-            "Estou aqui para te ajudar com dúvidas administrativas sobre o campus, como informações sobre matrícula, calendário acadêmico, fluxogramas, estágios, entre outros temas do dia a dia universitário.\n"
             "Você pode digitar sua dúvida normalmente ou escolher uma das perguntas de exemplo que aparecem abaixo.\n\n"
             "📌 *Exemplo:*\n"
             f"Você pode perguntar algo como: *\"Qual o fluxograma do curso de {curso_nome}?\"*\n"
             "Nesse caso, eu te respondo com o link ou imagem do fluxograma mais atualizado disponível!\n\n"
+            "⚠️ *IMPORTANTE:*\n"
+            "Lembre-se que não sou capaz de trazer informações *pessoais* sobre você e nem consigo acompanhar um diálogo com várias mensagens.\n"
+            "Então, envie suas perguntas de forma *clara e completa*, com o *contexto necessário*, para que eu possa ajudar da melhor forma!\n\n"
             "💬 Agora é só escolher uma das perguntas sugeridas ou digitar a sua dúvida. Estou pronto para te ajudar!",
             parse_mode="Markdown",
             reply_markup=create_perguntas_exemplo(context)
         )
+
 
     elif query.data == 'exemplo_fluxograma':
         curso = context.chat_data.get('curso', 'Engenharias')
@@ -224,7 +236,7 @@ async def button(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
                 '2017': 'imgs/2017/Fluxo_Energia_2017.jpeg'
             },
             'Engenharia Eletrônica': {
-                # '2024': 'pdfs/Fluxo_Aeroespacial_2024.pdf',
+                '2024': 'imgs/2024/Fluxo_Eletronica_2024.jpg',
                 '2017': 'imgs/2017/Fluxo_Eletronica_2017.png'
             }
         }
@@ -303,7 +315,7 @@ async def button(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
             if curso_para_contexto_rag == 'Engenharias':
                 user_question_text = "Qual o e-mail dos professores do ciclo básico?"
             else:
-                user_question_text = "Como entrar em contato com os professores?"
+                user_question_text = "Qual o e-mail dos professores?"
 
         pergunta_para_rag = f"No contexto de {curso_para_contexto_rag}: {user_question_text}"
 

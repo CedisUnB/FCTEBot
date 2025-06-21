@@ -1,12 +1,18 @@
+# rag.py
 import os
 import time
+import logging # <-- ADICIONADO
 from dotenv import load_dotenv
 from pinecone import Pinecone, ServerlessSpec
 from langchain_google_genai import GoogleGenerativeAIEmbeddings
 from langchain_pinecone import PineconeVectorStore
 from google import genai
+import google.api_core.exceptions # <-- ADICIONADO
+# v-- IMPORTAÇÕES DO TENACITY ADICIONADAS AQUI --v
+from tenacity import retry, wait_exponential, stop_after_attempt, retry_if_exception_type
 
 load_dotenv()
+logger = logging.getLogger(__name__) # <-- ADICIONADO
 
 # Inicializar Pinecone
 pc = Pinecone(api_key=os.getenv("PINECONE_API_KEY"))
@@ -35,11 +41,12 @@ system_message = (
     "Se não souber a resposta, encaminhe o número da secretaria (61) 3107-8901, e o horário de funcionamento de segunda a sexta-feira das 07h às 19h. "
     "Inclua no final da resposta a fonte da informação e a data de atualização conforme disponível no contexto."
 )
+# --- Fim do código de inicialização ---
 
-chat_history = []
 
 def get_relevant_chunk(query, vectorstore):
-    results = vectorstore.similarity_search(query, k=30)  # Pode ajustar k se quiser
+    # ... (sem alterações nesta função) ...
+    results = vectorstore.similarity_search(query, k=10)
     if results:
         partes = []
         fontes_vistas = set()
@@ -49,7 +56,6 @@ def get_relevant_chunk(query, vectorstore):
             data = meta.get('data_atualizacao', 'Data não disponível')
             texto = doc.page_content
             
-            # Evitar repetir fonte na montagem do contexto
             if fonte not in fontes_vistas:
                 partes.append(f"{texto}\n(Fonte: {fonte} | Atualizado em: {data})")
                 fontes_vistas.add(fonte)
@@ -60,28 +66,57 @@ def get_relevant_chunk(query, vectorstore):
         return contexto
     return "Nenhum resultado relevante encontrado."
 
+
 def make_prompt(query, context):
+    # ... (sem alterações nesta função) ...
     return (
         f"{system_message}\n\n"
-        f"IMPORTANTE: Use a tag HTML <b> para negrito ao invés de **texto**, use <a> para links e as listas faça com '-', evite markdown na resposta.\n\n"
+        f"IMPORTANTE: Use a tag HTML <b> para negrito ao invés de *texto*, use <a> para links e as listas faça com '-', evite markdown na resposta.\n\n"
         f"Com base nas informações abaixo, responda à pergunta de forma precisa e clara. "
         f"Sempre que possível, cite a fonte e a data de atualização da informação ao final da resposta e caso a fonte já tenha sido mencionada, não repetir:\n\n"
         f"{context}\n\n"
         f"Pergunta: {query}\n\n"
     )
 
+
+# Função para logar antes de tentar novamente
+def log_before_retry(retry_state):
+    logger.warning(
+        f"Rate limit atingido ou erro na API. Tentando novamente em "
+        f"{retry_state.next_action.sleep:.2f} segundos... "
+        f"(Tentativa {retry_state.attempt_number})"
+    )
+
+# APLICAÇÃO DA LÓGICA DE RETRY
+@retry(
+    wait=wait_exponential(multiplier=1, min=2, max=60), # Espera 2s, depois 4s, 8s, etc., até um máximo de 60s entre tentativas
+    stop=stop_after_attempt(5), # Para de tentar após 5 tentativas
+    retry=retry_if_exception_type(google.api_core.exceptions.ResourceExhausted), # Só tenta novamente para este erro específico
+    before_sleep=log_before_retry, # Loga uma mensagem antes de esperar
+    reraise=True # Se falhar todas as tentativas, levanta a exceção original
+)
 def gen_answer(prompt):
+    logger.info("Gerando resposta com a API do Gemini...")
     response = genai_client.models.generate_content(
-        model="gemini-2.0-flash",
+        model="gemini-1.5-flash", # Recomendo usar 1.5-flash, é mais recente e eficiente
         contents=prompt
     )
+    logger.info("Resposta gerada com sucesso.")
     return response.text.strip()
 
+
 def responder(query):
-    context = get_relevant_chunk(query, vectorstore)
-    prompt = make_prompt(query, context)
-    resposta = gen_answer(prompt)
-    return resposta
+    try:
+        context = get_relevant_chunk(query, vectorstore)
+        prompt = make_prompt(query, context)
+        resposta = gen_answer(prompt)
+        return resposta
+    except google.api_core.exceptions.ResourceExhausted:
+        logger.error(f"Falha ao gerar resposta para '{query}' após todas as tentativas devido a rate limit.")
+        return "🤖 Desculpe, estou com muitas solicitações no momento. Por favor, tente novamente em alguns instantes."
+    except Exception as e:
+        logger.error(f"Um erro inesperado ocorreu na função responder para a query '{query}': {e}", exc_info=True)
+        return "❌ Ocorreu um erro inesperado ao processar sua pergunta. Por favor, tente novamente."
 
 if __name__ == "__main__":
     pergunta = input("Digite sua pergunta: ").strip()

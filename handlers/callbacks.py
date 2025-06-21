@@ -5,6 +5,8 @@ from handlers.menus import create_menu, create_cursos_menu
 from utils.db_helper import save_feedback
 from rag import responder
 import logging
+import asyncio
+from telegram.constants import ChatAction   
 
 logger = logging.getLogger(__name__)
 
@@ -315,17 +317,21 @@ async def button(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
             if curso_para_contexto_rag == 'Engenharias':
                 user_question_text = "Qual o e-mail dos professores do ciclo básico?"
             else:
-                user_question_text = "Qual o e-mail dos professores?"
+                user_question_text = "Como entrar em contato com os professores?"
 
         pergunta_para_rag = f"No contexto de {curso_para_contexto_rag}: {user_question_text}"
 
         await query.edit_message_text(
-            f"🔍 Você selecionou o exemplo: *{user_question_text}*\n\n"
+            f"🔍 Você selecionou o exemplo: {user_question_text}\n\n"
             "Aguarde um instante enquanto eu busco essa informação pra você... 🧭",
             parse_mode="Markdown"
         )
+        
+        # Feedback visual para o usuário
+        await context.bot.send_chat_action(chat_id=query.message.chat.id, action=ChatAction.TYPING)
 
         try:
+            # A chamada já era assíncrona, o que é bom.
             resposta_rag = await asyncio.to_thread(responder, pergunta_para_rag)
 
             await query.edit_message_text(
@@ -334,12 +340,11 @@ async def button(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
                 reply_markup=create_perguntas_exemplo(context)
             )
         except Exception as e:
-            logger.error(f"Erro ao obter resposta do RAG para pergunta de exemplo '{query.data}': {e}")
+            logger.error(f"Erro ao obter resposta do RAG para pergunta de exemplo '{query.data}': {e}", exc_info=True)
             await query.edit_message_text(
                 text="❌ Desculpe, ocorreu um erro ao processar sua pergunta de exemplo. Por favor, tente digitar sua dúvida ou volte ao menu.",
                 reply_markup=create_perguntas_exemplo(context)
             )
-
     elif query.data == 'menu':
         # Ao voltar para o menu principal, limpamos o curso e contexto para forçar nova seleção.
         context.chat_data.pop('curso', None)

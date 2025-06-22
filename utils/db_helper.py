@@ -28,19 +28,20 @@ def get_db_connection():
         logger.error(f"Erro ao conectar ao MySQL: {e}")
         return None
 
-def save_feedback(chat_id: int, helped: bool) -> bool:
+def save_feedback(chat_id: int, helped: bool, suggestion: str = None) -> bool: # Adicionado suggestion
     connection = get_db_connection()
     if not connection:
         return False
 
     cursor = connection.cursor()
-    sql = "INSERT INTO feedbacks (chat_id, helped) VALUES (%s, %s)"
-    values = (chat_id, helped)
+    # Modificado para incluir a sugestão
+    sql = "INSERT INTO feedbacks (chat_id, helped, suggestion) VALUES (%s, %s, %s)"
+    values = (chat_id, helped, suggestion)
 
     try:
         cursor.execute(sql, values)
         connection.commit()
-        logger.info(f"Feedback salvo para chat_id {chat_id}: helped={helped}")
+        logger.info(f"Feedback salvo para chat_id {chat_id}: helped={helped}, suggestion='{suggestion if suggestion else ''}'")
         return True
     except mysql.connector.Error as e:
         logger.error(f"Erro ao salvar feedback: {e}")
@@ -63,7 +64,12 @@ if __name__ == '__main__':
         else:
             print(f"Falha ao salvar feedback (Sim) para chat_id {test_chat_id}")
 
-        if save_feedback(test_chat_id, False):
-            print(f"Feedback (Não) salvo para chat_id {test_chat_id}")
+        if save_feedback(test_chat_id, False, "O bot não entendeu minha pergunta sobre prazos."):
+            print(f"Feedback (Não com sugestão) salvo para chat_id {test_chat_id}")
         else:
-            print(f"Falha ao salvar feedback (Não) para chat_id {test_chat_id}")
+            print(f"Falha ao salvar feedback (Não com sugestão) para chat_id {test_chat_id}")
+
+        if save_feedback(test_chat_id, False):
+            print(f"Feedback (Não sem sugestão) salvo para chat_id {test_chat_id}")
+        else:
+            print(f"Falha ao salvar feedback (Não sem sugestão) para chat_id {test_chat_id}")

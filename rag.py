@@ -1,18 +1,17 @@
 # rag.py
 import os
 import time
-import logging # <-- ADICIONADO
+import logging
 from dotenv import load_dotenv
 from pinecone import Pinecone, ServerlessSpec
 from langchain_google_genai import GoogleGenerativeAIEmbeddings
 from langchain_pinecone import PineconeVectorStore
 from google import genai
-import google.api_core.exceptions # <-- ADICIONADO
-# v-- IMPORTAÇÕES DO TENACITY ADICIONADAS AQUI --v
+import google.api_core.exceptions
 from tenacity import retry, wait_exponential, stop_after_attempt, retry_if_exception_type
 
 load_dotenv()
-logger = logging.getLogger(__name__) # <-- ADICIONADO
+logger = logging.getLogger(__name__)
 
 # Inicializar Pinecone
 pc = Pinecone(api_key=os.getenv("PINECONE_API_KEY"))
@@ -41,12 +40,9 @@ system_message = (
     "Se não souber a resposta, encaminhe o número da secretaria (61) 3107-8901, e o horário de funcionamento de segunda a sexta-feira das 07h às 19h. "
     "Inclua no final da resposta a fonte da informação e a data de atualização conforme disponível no contexto."
 )
-# --- Fim do código de inicialização ---
-
 
 def get_relevant_chunk(query, vectorstore):
-    # ... (sem alterações nesta função) ...
-    results = vectorstore.similarity_search(query, k=10)
+    results = vectorstore.similarity_search(query, k=20)
     if results:
         partes = []
         fontes_vistas = set()
@@ -68,7 +64,6 @@ def get_relevant_chunk(query, vectorstore):
 
 
 def make_prompt(query, context):
-    # ... (sem alterações nesta função) ...
     return (
         f"{system_message}\n\n"
         f"IMPORTANTE: Use a tag HTML <b> para negrito ao invés de *texto*, use <a> para links e as listas faça com '-', evite markdown na resposta.\n\n"
@@ -78,8 +73,6 @@ def make_prompt(query, context):
         f"Pergunta: {query}\n\n"
     )
 
-
-# Função para logar antes de tentar novamente
 def log_before_retry(retry_state):
     logger.warning(
         f"Rate limit atingido ou erro na API. Tentando novamente em "
@@ -87,18 +80,17 @@ def log_before_retry(retry_state):
         f"(Tentativa {retry_state.attempt_number})"
     )
 
-# APLICAÇÃO DA LÓGICA DE RETRY
 @retry(
-    wait=wait_exponential(multiplier=1, min=2, max=60), # Espera 2s, depois 4s, 8s, etc., até um máximo de 60s entre tentativas
-    stop=stop_after_attempt(5), # Para de tentar após 5 tentativas
-    retry=retry_if_exception_type(google.api_core.exceptions.ResourceExhausted), # Só tenta novamente para este erro específico
-    before_sleep=log_before_retry, # Loga uma mensagem antes de esperar
-    reraise=True # Se falhar todas as tentativas, levanta a exceção original
+    wait=wait_exponential(multiplier=1, min=2, max=60), 
+    stop=stop_after_attempt(5),
+    retry=retry_if_exception_type(google.api_core.exceptions.ResourceExhausted), 
+    before_sleep=log_before_retry, 
+    reraise=True 
 )
 def gen_answer(prompt):
     logger.info("Gerando resposta com a API do Gemini...")
     response = genai_client.models.generate_content(
-        model="gemini-1.5-flash", # Recomendo usar 1.5-flash, é mais recente e eficiente
+        model="gemini-2.0-flash-lite",
         contents=prompt
     )
     logger.info("Resposta gerada com sucesso.")

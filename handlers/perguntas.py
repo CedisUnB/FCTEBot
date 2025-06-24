@@ -8,6 +8,7 @@ from telegram.constants import ChatAction
 from rag import responder
 from handlers.callbacks import reset_timer
 from utils.db_helper import save_feedback
+from handlers.menus import create_menu 
 
 logger = logging.getLogger(__name__)
 
@@ -47,14 +48,16 @@ async def responder_pergunta(update: Update, context: ContextTypes.DEFAULT_TYPE)
 
     if not curso and not contexto_geral:
         await update.message.reply_text(
-            "❗ Antes de fazer uma pergunta, por favor selecione um curso ou o contexto geral usando /start."
+            "❗ Antes de fazer uma pergunta, por favor selecione um curso ou o contexto de engenharias:", # adicionar as opções de curso ou contexto geral Add commentMore actions
+            reply_markup=create_menu()
         )
         return
 
     prefixo = f"No contexto de {curso}" if curso else "No contexto geral da FGA UnB"
     pergunta_com_contexto = f"{prefixo}: {user_input}"
-
+    await update.message.reply_text("🔎 Buscando a resposta para sua pergunta, só um instante...")
     await update.message.reply_chat_action(action=ChatAction.TYPING)
+    resposta = responder(pergunta_com_contexto)
 
     try:
         resposta = await asyncio.to_thread(responder, pergunta_com_contexto)

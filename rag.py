@@ -42,7 +42,7 @@ system_message = (
 )
 
 def get_relevant_chunk(query, vectorstore):
-    results = vectorstore.similarity_search(query, k=20)
+    results = vectorstore.similarity_search(query, k=30)
     if results:
         partes = []
         fontes_vistas = set()

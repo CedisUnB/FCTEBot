@@ -154,7 +154,7 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
         context.chat_data.pop('awaiting_suggestion_after_feedback', None)
 
     welcome_message = (
-        "👋 Olá! Seja bem-vindo(a) ao assistente virtual da UnB – FGA!\n\n"
+        "👋 Olá! Seja bem-vindo(a) ao assistente virtual da UnB – FCTE!\n\n"
         "Estou aqui para te ajudar com dúvidas administrativas sobre o campus, como informações sobre matrícula, fluxogramas, estágios, entre outros temas gerais do dia a dia universitário.\n\n"
         "Para iniciar, selecione *Engenharias* ou o seu curso abaixo. Você também pode digitar sua dúvida se preferir.\n\n"
         "👇 Escolha uma das opções:"
@@ -187,7 +187,6 @@ async def handle_feedback_button(update: Update, context: ContextTypes.DEFAULT_T
         logger.info(f"Feedback POSITIVO recebido de {chat_id}. Encerrando sessão de interação ativa.")
         context.chat_data.clear()
         context.user_data.clear()
-        # Cancelar também o job de pedir feedback, pois a sessão está encerrada
         ask_feedback_job = context.chat_data.pop("ask_feedback_job", None)
         if ask_feedback_job: ask_feedback_job.schedule_removal()
 
@@ -199,7 +198,6 @@ async def handle_feedback_button(update: Update, context: ContextTypes.DEFAULT_T
             "Para que eu possa melhorar, por favor, envie sua sugestão ou observação como uma mensagem de texto.\n\n"
             "Sua opinião é muito importante! Se não enviar uma sugestão em alguns minutos, a conversa será encerrada."
         )
-        # Agendar o job para lidar com o timeout da sugestão
         new_suggestion_timeout_job = context.job_queue.run_once(
             _handle_pending_suggestion_timeout,
             INACTIVITY_TIMEOUT_AWAIT_SUGGESTION,
@@ -214,26 +212,40 @@ async def button(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
     await query.answer()
     chat_id = update.effective_chat.id
 
-    # Se estava aguardando sugestão e usuário clicou em um botão
     awaiting_suggestion_job = context.chat_data.pop("await_suggestion_job", None)
     if awaiting_suggestion_job:
         awaiting_suggestion_job.schedule_removal()
         logger.info(f"Usuário {chat_id} clicou em botão enquanto aguardava sugestão. Salvando feedback 'Não' e cancelando job.")
-        save_feedback(chat_id, False, None) # Salva "Não Ajudou" sem sugestão
+        save_feedback(chat_id, False, None) 
         context.chat_data.pop('awaiting_suggestion_after_feedback', None)
-        # A conversa prosseguirá com a ação do botão
-        # O reset_timer será chamado abaixo
 
     await reset_timer(chat_id, context)
 
-    # ... (resto da função button permanece o mesmo)
     if query.data == 'contexto':
         context.chat_data['curso'] = 'Engenharias'
         context.chat_data['contexto'] = True
         await query.edit_message_text(
             "👋 Você selecionou o contexto geral das *Engenharias*.\n\n"
-            "Você pode digitar sua dúvida normalmente ou escolher uma das perguntas de exemplo que aparecem abaixo.\n\n"
-            "📌 *Exemplo:*\n"
+            "✅ *Aqui está tudo o que você pode me perguntar:*\n\n"
+            "🎓 *Vida Acadêmica:*\n"
+            "• Manual do Estudante\n"
+            "• Matrícula (calouro, veterano, transferido)\n"
+            "• Estágio, Monitoria e TCC\n"
+            "• Dupla Graduação, Confirmação de Matrícula e Mudança de Curso\n"
+            "• Fluxogramas, Cadeias de Seletividade, Carga Horária, Matérias Optativas\n"
+            "• Aproveitamento de horas e Equivalência de disciplinas\n"
+            "• Calendário Acadêmico\n"
+            "• IRA, Menção, Revisão de Menção, Trancamentos e Critérios de Jubilamento (desligamento)\n"
+            "• Diploma, Colação de Grau, Status de Formando, Checklist do Calouro\n"
+            "• Principais Formulários Acadêmicos\n"
+            "• Turmas disponíveis no semestre\n"
+            "• Língua Estrangeira, Aluno Especial, Habilidades Específicas e Transferências\n\n"
+            "🏢 *Informações do Campus Gama:*\n"
+            "• Informações gerais da unidade Gama e de cada curso de Engenharia\n"
+            "• Corpo Docente (professores)\n"
+            "• Serviços disponíveis no campus: Secretaria, Auxílios e Assistência Estudantil, Psicóloga, Acessibilidade\n"
+            "• Extensão, Iniciação Científica, Laboratórios do campus\n\n"
+            "📌 *Exemplo de pergunta:*\n"
             "Você pode perguntar algo como: *\"Como faço a matrícula?\"*\n"
             "Nesse caso, eu te respondo com as principais informações sobre como fazer a matrícula sendo calouro, transferido ou veterano!\n\n"
             "⚠️ *IMPORTANTE:*\n"
@@ -243,6 +255,7 @@ async def button(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
             parse_mode="Markdown",
             reply_markup=create_perguntas_exemplo(context)
     )
+
 
     elif query.data == 'cursos':
         await query.edit_message_text("📊 Escolha um Curso:", reply_markup=create_cursos_menu())
@@ -261,8 +274,26 @@ async def button(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
 
         await query.edit_message_text(
             f"👋 Você selecionou *{curso_nome}*!\n\n"
-            "Você pode digitar sua dúvida normalmente ou escolher uma das perguntas de exemplo que aparecem abaixo.\n\n"
-            "📌 *Exemplo:*\n"
+            "✅ *Aqui está tudo o que você pode me perguntar:*\n\n"
+            "🎓 *Vida Acadêmica:*\n"
+            "• Manual do Estudante\n"
+            "• Matrícula (calouro, veterano, transferido)\n"
+            "• Estágio, Monitoria e TCC\n"
+            "• Dupla Graduação, Confirmação de Matrícula e Mudança de Curso\n"
+            "• Fluxogramas, Cadeias de Seletividade, Carga Horária, Matérias Optativas\n"
+            "• Aproveitamento de horas e Equivalência de disciplinas\n"
+            "• Calendário Acadêmico\n"
+            "• IRA, Menção, Revisão de Menção, Trancamentos e Critérios de Jubilamento (desligamento)\n"
+            "• Diploma, Colação de Grau, Status de Formando, Checklist do Calouro\n"
+            "• Principais Formulários Acadêmicos\n"
+            "• Turmas disponíveis no semestre\n"
+            "• Língua Estrangeira, Aluno Especial, Habilidades Específicas e Transferências\n\n"
+            "🏢 *Informações do Campus Gama:*\n"
+            "• Informações gerais da unidade Gama e de cada curso de Engenharia\n"
+            "• Corpo Docente (professores)\n"
+            "• Serviços disponíveis no campus: Secretaria, Auxílios e Assistência Estudantil, Psicóloga, Acessibilidade\n"
+            "• Extensão, Iniciação Científica, Laboratórios do campus\n\n"
+            "📌 *Exemplo de pergunta:*\n"
             f"Você pode perguntar algo como: *\"Qual o fluxograma do curso de {curso_nome}?\"*\n"
             "Nesse caso, eu te respondo com o link ou imagem do fluxograma mais atualizado disponível!\n\n"
             "⚠️ *IMPORTANTE:*\n"
@@ -338,7 +369,6 @@ async def button(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
             await query.edit_message_text(text="❌ Desculpe, ocorreu um erro ao processar sua pergunta de exemplo. Por favor, tente digitar sua dúvida ou volte ao menu.", reply_markup=create_perguntas_exemplo(context))
 
     elif query.data == 'menu':
-        # Ao voltar para o menu principal, limpamos o curso e contexto para forçar nova seleção.
         context.chat_data.pop('curso', None)
         context.chat_data.pop('contexto', None)
         await query.edit_message_text("Olá! Escolha uma das opções abaixo:", reply_markup=create_menu())

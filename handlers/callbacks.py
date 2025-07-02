@@ -35,7 +35,6 @@ async def _handle_pending_suggestion_timeout(context: ContextTypes.DEFAULT_TYPE)
             logger.error(f"Erro ao enviar mensagem de timeout de sugestão para {chat_id}: {e}")
         finally:
             context.chat_data.clear()
-            context.user_data.clear()
     else:
         logger.debug(f"Timeout de sugestão para {chat_id}, mas não estava aguardando sugestão. Nenhuma ação.")
 
@@ -112,7 +111,6 @@ async def end_conversation_after_feedback_prompt(context: ContextTypes.DEFAULT_T
         logger.error(f"Erro ao encerrar conversa após pedido de feedback com {chat_id}: {e}")
     finally:
         context.chat_data.clear()
-        context.user_data.clear()
 
 async def reset_timer(chat_id, context: ContextTypes.DEFAULT_TYPE):
     if context.chat_data.get('awaiting_suggestion_after_feedback'):
@@ -160,7 +158,6 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
         "👇 Escolha uma das opções:"
     )
     context.chat_data.clear() 
-    context.user_data.clear()
 
     await update.message.reply_text(welcome_message, parse_mode="Markdown", reply_markup=create_menu())
     await reset_timer(chat_id, context)
@@ -186,7 +183,6 @@ async def handle_feedback_button(update: Update, context: ContextTypes.DEFAULT_T
         await query.edit_message_text("Obrigado pelo seu feedback! 😊 Fico feliz em ajudar. Para iniciar uma nova conversa digite /start")
         logger.info(f"Feedback POSITIVO recebido de {chat_id}. Encerrando sessão de interação ativa.")
         context.chat_data.clear()
-        context.user_data.clear()
         ask_feedback_job = context.chat_data.pop("ask_feedback_job", None)
         if ask_feedback_job: ask_feedback_job.schedule_removal()
 

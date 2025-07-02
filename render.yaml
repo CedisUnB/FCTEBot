@@ -4,18 +4,4 @@ services:
     name: rag-service
     env: docker
     dockerfilePath: ./Dockerfile
-    healthCheckPath: /docs
-    envVars:
-      - key: SERVICE_TYPE
-        value: api
-
-  # Serviço 2: O Bot do Telegram (Background Worker)
-  - type: worker
-    name: telegram-bot
-    env: docker
-    dockerfilePath: ./Dockerfile
-    envVars:
-      - key: SERVICE_TYPE
-        value: bot
-      - key: RAG_API_URL
-        value: http://rag-service:8000/responder
+    healthCheckPath: /

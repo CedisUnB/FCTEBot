@@ -18,8 +18,7 @@ logger = logging.getLogger(__name__)
 load_dotenv()
 logging.basicConfig(level=logging.INFO, format="%(asctime)s - %(name)s - %(levelname)s - %(message)s")
 logger = logging.getLogger(__name__)
-# ... (validação e inicialização dos serviços sem alterações) ...
-# --- INICIALIZAÇÃO DO SEU CÓDIGO ORIGINAL ---
+
 try:
     # Pinecone
     pc = Pinecone(api_key=os.getenv("PINECONE_API_KEY"))
@@ -77,6 +76,13 @@ def _get_relevant_chunks_sync(query: str) -> str:
             partes.append(texto)
     contexto = "\n\n---\n\n".join(partes)
     return contexto
+
+@retry(
+    wait=wait_exponential(multiplier=1, min=2, max=60),
+    stop=stop_after_attempt(5),
+    retry=retry_if_exception_type(google.api_core.exceptions.ResourceExhausted),
+    before_sleep=lambda s: logger.warning(f"Rate limit atingido. Tentando novamente... (Tentativa {s.attempt_number})")
+)
 
 def _generate_content_sync(prompt: str) -> str:
     """Função SÍNCRONA para gerar conteúdo com o Gemini."""

@@ -1,7 +1,0 @@
-services:
-  # Serviço 1: A API RAG (FastAPI)
-  - type: web
-    name: rag-service
-    env: docker
-    dockerfilePath: ./Dockerfile
-    healthCheckPath: /

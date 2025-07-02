@@ -11,7 +11,7 @@ from tenacity import retry, wait_exponential, stop_after_attempt, retry_if_excep
 
 logger = logging.getLogger(__name__)
 
-# --- Configurações Globais Seguras ---
+# --- Configurações Globais ---
 load_dotenv()
 logging.basicConfig(level=logging.INFO, format="%(asctime)s - %(name)s - %(levelname)s - %(message)s")
 logger = logging.getLogger(__name__)
@@ -53,12 +53,10 @@ def make_prompt(query: str, context: str) -> str:
 
 def _get_relevant_chunks_sync(query: str) -> str:
     logger.info(f"Buscando chunks para a query: '{query[:30]}...'")
-      # Usamos o método síncrono aqui, pois a função toda já é síncrona
     results = vectorstore.similarity_search(query, k=30)
     if not results:
         return "Nenhum resultado relevante encontrado."
     
-    # Processamento dos resultados (sem alterações)
     partes = []
     fontes_vistas = set()
     for doc in results:
@@ -82,7 +80,6 @@ def _get_relevant_chunks_sync(query: str) -> str:
 )
 
 def _generate_content_sync(prompt: str) -> str:
-    """Função SÍNCRONA para gerar conteúdo com o Gemini."""
     logger.info("Gerando resposta com a API do Gemini...")
     response = genai_client.models.generate_content(
         model="gemini-2.0-flash-lite",

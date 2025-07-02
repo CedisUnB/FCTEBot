@@ -9,10 +9,11 @@ csv_file = 'infosadmunb.csv'
 data = pd.read_csv(csv_file)
 
 db_connection = mysql.connector.connect(
-    host='localhost',
-    user='root',
+    host=os.getenv('DB_HOST'),
+    user=os.getenv('DB_USER'),
     password=os.getenv('DB_PASSWORD'),
-    database='fctebot'
+    database=os.getenv('DB_NAME'),
+    port=os.getenv('DB_PORT')
 )
 
 cursor = db_connection.cursor()

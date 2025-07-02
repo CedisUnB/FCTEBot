@@ -9,16 +9,18 @@ load_dotenv()
 setup_logging() # Configura o logger se ainda não estiver
 logger = logging.getLogger(__name__)
 
-DB_HOST = 'localhost'
-DB_USER = 'root'
+DB_HOST = os.getenv('DB_HOST')
+DB_USER = os.getenv('DB_USER')
 DB_PASSWORD = os.getenv('DB_PASSWORD')
-DB_NAME = 'fctebot'
+DB_NAME = os.getenv('DB_NAME')
+DB_PORT = int(os.getenv('DB_PORT', 4000))
 
 def get_db_connection():
     try:
         connection = mysql.connector.connect(
             host=DB_HOST,
             user=DB_USER,
+            port=DB_PORT,
             password=DB_PASSWORD,
             database=DB_NAME
         )

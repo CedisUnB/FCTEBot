@@ -1,0 +1,35 @@
+services:
+  # Serviço 1: A API RAG (FastAPI)
+  - type: web
+    name: rag-service
+    env: docker
+    dockerfilePath: ./Dockerfile
+    startCommand: "uvicorn rag_service:app --host 0.0.0.0 --port 8000 --workers 4"
+    healthCheckPath: /docs
+    envVars:
+      - key: PINECONE_API_KEY
+        fromSecret: true
+      - key: GOOGLE_API_KEY
+        fromSecret: true
+
+  # Serviço 2: O Bot do Telegram (Background Worker)
+  - type: worker
+    name: telegram-bot
+    env: docker
+    dockerfilePath: ./Dockerfile
+    startCommand: "python bot.py"
+    envVars:
+      - key: TELEGRAM_BOT_TOKEN
+        fromSecret: true
+      - key: RAG_API_URL
+        value: http://rag-service:8000/responder
+      - key: DB_HOST
+        fromSecret: true
+      - key: DB_USER
+        fromSecret: true
+      - key: DB_PASSWORD
+        fromSecret: true
+      - key: DB_NAME
+        fromSecret: true
+      - key: DB_PORT
+        fromSecret: true

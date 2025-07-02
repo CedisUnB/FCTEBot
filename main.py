@@ -1,5 +1,5 @@
 # main.py (Versão Corrigida para integração asyncio)
-import asyncio
+import uvicorn
 import logging
 import os
 from contextlib import asynccontextmanager
@@ -106,3 +106,7 @@ def health_check():
     # ... (esta parte não muda)
     is_running = telegram_app.updater.running if telegram_app and telegram_app.updater else False
     return {"status": "ok", "bot_status": "running" if is_running else "stopped"}
+
+if __name__ == "__main__":
+    port = int(os.getenv("PORT", 8000))
+    uvicorn.run(app, host="0.0.0.0", port=port)

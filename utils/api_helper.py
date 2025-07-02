@@ -1,9 +1,10 @@
 # utils/api_helper.py
 import httpx
 import logging
+import os
 
 logger = logging.getLogger(__name__)
-RAG_API_URL = "http://127.0.0.1:8000/responder"
+RAG_API_URL = os.getenv("RAG_API_URL", "http://127.0.0.1:8000/responder")
 
 async def call_rag_api(query: str) -> str:
     """

@@ -3,10 +3,10 @@ from telegram import Update, InlineKeyboardButton, InlineKeyboardMarkup
 from telegram.ext import ContextTypes
 from handlers.menus import create_menu, create_cursos_menu
 from utils.db_helper import save_feedback
-from rag import responder
+from utils.api_helper import call_rag_api  # <-- NOVO
 import logging
-import asyncio
 from telegram.constants import ChatAction
+
 
 logger = logging.getLogger(__name__)
 
@@ -358,15 +358,16 @@ async def button(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
                 user_question_text = "Qual o email dos professores do ciclo básico?"
             else:
                 user_question_text = "Qual o email dos professores?"
+        
         pergunta_para_rag = f"No contexto de {curso_para_contexto_rag}: {user_question_text}"
-        await query.edit_message_text(f"🔍 Você selecionou o exemplo: {user_question_text}\n\nAguarde um instante enquanto eu busco essa informação pra você... 🧭", parse_mode="Markdown")
+        await query.edit_message_text(f"🔍 Você selecionou o exemplo: {user_question_text}\n\nAguarde um instante... 🧭", parse_mode="Markdown")
         await context.bot.send_chat_action(chat_id=query.message.chat.id, action=ChatAction.TYPING)
-        try:
-            resposta_rag = await asyncio.to_thread(responder, pergunta_para_rag)
-            await query.edit_message_text(text=f"💬 {resposta_rag}", parse_mode="HTML", reply_markup=create_perguntas_exemplo(context))
-        except Exception as e:
-            logger.error(f"Erro ao obter resposta do RAG para pergunta de exemplo '{query.data}': {e}", exc_info=True)
-            await query.edit_message_text(text="❌ Desculpe, ocorreu um erro ao processar sua pergunta de exemplo. Por favor, tente digitar sua dúvida ou volte ao menu.", reply_markup=create_perguntas_exemplo(context))
+        
+        # --- CHAMADA ASSÍNCRONA PARA A API ---
+        resposta_rag = await call_rag_api(pergunta_para_rag)
+        # --- FIM DA CHAMADA ---
+        
+        await query.edit_message_text(text=f"💬 {resposta_rag}", parse_mode="HTML", reply_markup=create_perguntas_exemplo(context))
 
     elif query.data == 'menu':
         context.chat_data.pop('curso', None)

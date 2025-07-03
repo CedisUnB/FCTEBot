@@ -2,11 +2,11 @@
 import os
 import mysql.connector
 from dotenv import load_dotenv
-from utils.logger import setup_logging # Supondo que você quer logar aqui também
+from utils.logger import setup_logging
 import logging
 
 load_dotenv()
-setup_logging() # Configura o logger se ainda não estiver
+setup_logging()
 logger = logging.getLogger(__name__)
 
 DB_HOST = os.getenv('DB_HOST')
@@ -25,18 +25,30 @@ def get_db_connection():
             database=DB_NAME
         )
         if connection.is_connected():
+            # --- ADICIONA ESTE BLOCO PARA DEFINIR O FUSO HORÁRIO DA SESSÃO ---
+            try:
+                cursor = connection.cursor()
+                cursor.execute("SET time_zone = 'America/Sao_Paulo'")
+                # Não precisa de connection.commit() aqui, pois SET time_zone é um comando de configuração
+                cursor.close()
+                logger.info("Fuso horário da sessão do banco de dados definido para 'America/Sao_Paulo'.")
+            except mysql.connector.Error as e:
+                logger.error(f"Erro ao definir o fuso horário da sessão: {e}")
+                connection.close() # Fechar a conexão se não conseguir definir o fuso horário
+                return None
+            # --- FIM DO BLOCO DE FUSO HORÁRIO ---
+
             return connection
     except mysql.connector.Error as e:
         logger.error(f"Erro ao conectar ao MySQL: {e}")
         return None
 
-def save_feedback(chat_id: int, helped: bool, suggestion: str = None) -> bool: # Adicionado suggestion
+def save_feedback(chat_id: int, helped: bool, suggestion: str = None) -> bool:
     connection = get_db_connection()
     if not connection:
         return False
 
     cursor = connection.cursor()
-    # Modificado para incluir a sugestão
     sql = "INSERT INTO feedbacks (chat_id, helped, suggestion) VALUES (%s, %s, %s)"
     values = (chat_id, helped, suggestion)
 
